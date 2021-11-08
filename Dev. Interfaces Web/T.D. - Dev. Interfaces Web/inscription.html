@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Le site non officiel de Chuck Norris</title>
+</head>
+
+<body>
+    <header>
+        <blockquote id="top">"Little John: Braddock ! Je vous préviens, attention où vous mettez les pieds !
+            Braddock : Je mets les pieds où je veux, Little John… et c'est souvent dans la gueule."
+
+            Chuck Norris, Portés disparus 3 (1988), écrit par Arthur Silver, Larry Levinson, James Bruner, Chuck Norris,
+            Steve Bing
+        </blockquote>
+        <nav>
+            <div class="first"><a id="first" href="./index.html">Accueil</a>
+                <div id="firstSub" class="submenu firstSub">
+                    <div><a href="./one.html">one</a></div>
+                    <h6>---</h6>
+                    <div><a href="./two.html">two</a></div>
+                    <h6>---</h6>
+                    <div><a href="./three.html">three</a></div>
+                </div>
+            </div>
+            <div><a href="./facts.html">Facts</a></div>
+            <div><a href="./news.html">Actualitées</a></div>
+            <div class="second"><a id="second" href="./contact.html">Contact</a>
+                <div id="secondSub" class="submenu">
+                    <div><a href="./other.html">other</a></div>
+                    <h6>---</h6>
+                    <div><a href="./another.html">another</a></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="rs--contain">
+        <img src="images/facebook.png" alt="Icone Facebook" />
+        <h5>---</h5>
+        <img src="images/twitter.png" alt="Icone Twitter" />
+    </div>
+    <main>
+        <form action="sendToMySecondYearInIut.php" method="get">
+            <fieldset>
+                <legend>Informations personnelles</legend>
+                <label for="uname">Nom*</label>
+                <input type="text" name="uname" required/><br />
+                <label for="firstname">Prenm</label>
+                <input type="inout" name="firstname"><br />
+                <label for="H">Homme ?</label>
+                <input type="checkbox" name="H" value="Homme" /><br />
+                <label for="F">Femme ?</label>
+                <input type="checkbox" name="F" value="Femme" /><br />
+                <label for="date"> Date de naissance ?</label>
+                <input type="date" name="date" /><br />
+                <label for="password">Password ?*</label>
+                <input type="password" name="password" required min="8"/><br />
+                <label for="emaim">Email ?*</label>
+                <input type="email" name="email" placeholder="yourmail@domain.com" required pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}"/><br />
+            </fieldset>
+            <fieldset>
+                <legend>Les sports de combat</legend>
+                <label for="karate">Niveau en karaté ?</label>
+                <input type="number" name="karaté" min="0" max="5"><br />
+                <label for="basique">Basique (5e)</label>
+                <input type="checkbox" name="basique" value="basique" /><br />
+                <label for="gold">Gold (15e)</label>
+                <input type="checkbox" name="goldF" value="gold" /><br />
+                <label for="tatane">Tatane in your face (50e)</label>
+                <input type="checkbox" name="tatane" value="tatane" /><br />
+            </fieldset>
+            <fieldset>
+                <legend>Inscription</legend>
+                <label for="lu">J'ai bien lu les clause que je n'ai pas lues*</label>
+                <input type="radio" name="lu" value="lu" required><br />
+                <select name="pays">
+                    <option value="fr">France</option>
+                    <option value="usa">U.S.A.</option>
+                    <option value="ch">Chine</option>
+                    <option value="vn">Vîet Nam</option>
+                </select><br />
+                <select name="artsmartiaux" multiple>
+                    <option value="kf">Kung Fu</option>
+                    <option value="ka">Karaté</option>
+                    <option value="fc">Full-contact</option>
+                </select><br />
+                <textarea name="textofuser" id="txtuser" cols="30" rows="10" placeholder="Un inscrit sera tiré au sort, et verra son message transmis à Chuck Norris."></textarea>
+            </fieldset>
+
+            <input type="submit" value="Envoyer" />
+        </form>
+    </main>
+    <article>
+
+    </article>
+    <aside>
+
+    </aside>
+    <footer>
+        <a href="index.html#top">Retour au début</a>
+    </footer>
+</body>
+
+</html>
