@@ -1,7 +1,32 @@
 public class Main {
     public static void main(String[] args){
-        longPlateauVecteur(createTabVecteur());
+        nombreLePlusFrequent(createTab());
     }
+
+    /**
+     * Fonction qui prend en parametre un tableau et qui l'affiche.
+     * @param tab
+     */
+    public static void afficheTab(int[] tab){
+        Ut.afficher("| ");
+        for(int i=0; i<tab.length; i++){
+            Ut.afficher("[" + tab[i] + "]");
+        }
+        Ut.afficherSL(" |");
+    }
+
+    public static int[] createTab(){
+        Ut.afficher("Saisir la taille du tableau: "); int taille = Ut.saisirEntier();
+        int[] tab = new int[taille];
+        for(int i=0; i<taille; i++){
+            Ut.afficher("Saisir le " + i + "eme nombre: ");
+            tab[i] = Ut.saisirEntier();
+        }
+
+        return tab;
+    }
+
+
 
     /**
      * Fonction pour afficher une table de multiplication d'un nombre.
@@ -244,28 +269,7 @@ public class Main {
 
 
     //COMPACTAGE
-    /**
-     * Fonction qui prend en parametre un tableau et qui l'affiche.
-     * @param tab
-     */
-    public static void afficheTab(int[] tab){
-        Ut.afficher("| ");
-        for(int i=0; i<tab.length; i++){
-            Ut.afficher("[" + tab[i] + "]");
-        }
-        Ut.afficherSL(" |");
-    }
 
-    public static int[] createTab(){
-        Ut.afficher("Saisir la taille du tableau: "); int taille = Ut.saisirEntier();
-        int[] tab = new int[taille];
-        for(int i=0; i<taille; i++){
-            Ut.afficher("Saisir le " + i + "eme nombre: ");
-            tab[i] = Ut.saisirEntier();
-        }
-
-        return tab;
-    }
 
     /**
      * Fonction qui prend en parametre un tableau, et qui le range.
@@ -349,13 +353,53 @@ public class Main {
      * @param tab
      */
     public static void longPlateauVecteur(char[] tab){
-        int rint = 1;
-        int during = 1;
-        char rchar = tab[0];
+        char moreLong = tab[0];
+        int longer = 1;
+        int calcul = 0;
         for(int i=0; i<tab.length; i++){
-            if(tab[i] == tab[i+1]){
-                
+            calcul = 1;
+            for(int j=i+1; j<tab.length; j++){
+                if(tab[j] == tab[i]){
+                    calcul += 1;
+                }else {
+                    break;
+                }
+            }
+
+            if(calcul > longer){
+                longer = calcul;
+                moreLong = tab[i];
             }
         }
+
+        Ut.afficher("Le caractère le plus long est: " + moreLong + ", avec " + longer + " caractères.");
+    }
+
+
+
+    //NOMBRE LE PLUS FREQUENT
+    public static void nombreLePlusFrequent(int[] tab){
+        afficheTab(tab);
+        int moreLong = tab[0];
+        int longerInt = 1;
+        int calcul = 1;
+        for(int i=0; i<tab.length; i++){
+            calcul = 1;
+            for(int j=i+1; j<tab.length; j++){
+                if(tab[i] == tab[j]){
+                    calcul += 1;
+                }
+            }
+
+            if(calcul > longerInt){
+                longerInt = calcul;
+                moreLong = tab[i];
+            }
+        }
+
+        Ut.afficher("\n\n");
+        Ut.afficherSL("Le nombre le plus fréquent dans le tableau suivant: ");
+        afficheTab(tab);
+        Ut.afficher("est: " + moreLong + " avec: " + longerInt + " de fréquence.");
     }
 }
