@@ -26,14 +26,6 @@ public class Casquette {
         Ut.afficher(this.couleur + this.taille);
     }
 
-    public int getTaille() {
-        return this.taille;
-    }
-    public void setTaille(int taille){
-        this.taille = taille;
-    }
-
-
     public String getCouleur() {
         return this.couleur;
     }
@@ -49,5 +41,14 @@ public class Casquette {
     public void setMatiere(String matiere) {
         this.matiere = matiere;
     }
+
+    public int getTaille() {
+        return this.taille;
+    }
+
+    public void setTaille(int taille) {
+        this.taille = taille;
+    }
+    
 
 }
