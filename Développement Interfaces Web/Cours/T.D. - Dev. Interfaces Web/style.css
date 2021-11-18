@@ -1,0 +1,135 @@
+body {
+    background-color: #838892;
+    width: 100%;
+    line-height: 150%;
+    margin: auto;
+}
+nav {
+    display: block;
+    height: 50px;
+    width: 75%;
+    margin: auto;
+}
+article {
+    max-width: 500px;
+    min-width: 200px;
+}
+aside{
+    max-width: 250px;
+    min-width: 150px;
+}
+nav div {
+    background-color: #5BBDBF;
+    display: inline
+}
+nav a {
+    color: #c0d5c2;
+    margin: 10px;
+    border-left: 2px solid black;
+}
+nav .submenu {
+    border: 0px solid;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 75px;
+    min-height: 95px;
+    background-color: #aca;
+    display: none;
+}
+nav .submenu a {
+    position: absolute;
+}
+nav .submenu h6 {
+    color: none;
+    font-size: 1px;
+}
+nav div {
+    width: 100px;
+}
+
+#secondSub {
+    margin-left: 275px;
+}
+
+
+#first{
+    border: 0px solid;
+}
+div.first:hover #firstSub {
+    display: block;
+}
+div.second:hover #secondSub {
+    display: block;
+}
+
+.rs--contain{
+    position: fixed;
+    top: 90vh;
+    margin-left: 60vw;
+}
+.rs--contain h5 {
+    color: #838892;
+    font-size: 1px;
+    margin: -15px;
+
+}
+h2{
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+h3{
+    border: 1px solid #CCCCCC;
+}
+p {
+    margin-left: 5px;
+    margin: 15px 0px 15px 0px;
+}
+@font-face{
+    font-family: OpenSans;
+    src: url(./OpenSans-Regular.ttf);
+}
+.pair {
+    background-color: #5BBDBF;
+}
+.impair{
+    background-color: #FF5850;
+}
+#beware{
+    height: 300px;
+    float: right;
+}
+#chuckimg{
+    float: left;
+    height: 150px;
+}
+#newp{
+    margin-top: 5px;
+    clear: left;
+    margin-left: 5px;
+}
+.skill {
+    color: red;
+    padding: 5px;
+}
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: #0088FF;
+}
+a:hover{
+    color: orange;
+}
+thead tr {
+    background-color: #00AAFF;
+}
+table .skill{
+    color: #640051;
+}
+tr {
+    background-color: #CCC;
+}
+td {
+    text-align: center;
+}
