@@ -47,6 +47,24 @@ public class Fraction {
       return this.numerateur + "/" + this.denominateur; 
     }
 
+
+    public int getNumerateur() {
+        return this.numerateur;
+    }
+
+    public void setNumerateur(int numerateur) {
+        this.numerateur = numerateur;
+    }
+
+    public int getDenominateur() {
+        return this.denominateur;
+    }
+
+    public void setDenominateur(int denominateur) {
+        this.denominateur = denominateur;
+    }
+
+
     /* A COMPLETER A PARTIR D'ICI !! */
 
     // Dans terminal : [javac Fraction] ; javac MainFraction.java ;  java MainFraction
@@ -67,13 +85,17 @@ public class Fraction {
      * Fonction qui réduit une fraction en ne modifiant pas le THIS.
      * @return
      */
-    public String fractionReduiteMNoModifThis(){
+    public Fraction fractionReduiteMNoModifThis(){
         int pgcd = Ut.pgcd(this.numerateur, this.denominateur);
 
         int numerateur = this.numerateur/pgcd;
         int denominateur = this.denominateur/pgcd;
 
-        return numerateur + "/" + denominateur;
+        Fraction reduite;
+
+        reduite = new Fraction(numerateur, denominateur);
+
+        return reduite;
     }
 
     /**
@@ -81,12 +103,27 @@ public class Fraction {
      * @return
      */
     public String fractionMultiplyAndPlus(Fraction f){
-        Fraction thisF = this.numerateur this.denominateur;
-        return "Multiply: " + thisF + " x " + f.toString();
-        thisF + f;
+        System.out.println("This Numerateur: " + this.numerateur + "    F Numerateur: " + f.getNumerateur());        
+        System.out.println("This Denominateur: " + this.denominateur + "    F Denominateur: " + f.getDenominateur());
+
+        int thisNum = (this.numerateur*f.getDenominateur());
+        int fNum = (f.getNumerateur()*this.denominateur);
+        int num = thisNum + fNum;
+        int den = this.denominateur*f.getDenominateur();
         
-        
+        return this.numerateur*f.getNumerateur() + "/" + this.denominateur*f.getDenominateur() + "\n" + num+"/"+den;
     }
+
+    /**
+     * Fonction qui permet de mettre une fraction à la puissance.
+     * @param n
+     * @return
+     */
+    public String fractionPuissance(int n){
+        return Math.pow(this.numerateur, n) + "/" + Math.pow(this.denominateur, n);
+    }
+
+    
 }
 
 
