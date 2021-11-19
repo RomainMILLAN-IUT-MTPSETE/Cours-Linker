@@ -6,7 +6,7 @@ class MainFraction { // Classe de test de Fraction et contenant la fonction prin
 
     public static void main(String args[]){
 	
-	Fraction f1, f2, f3, f4; // declaration de 4 variables/instances de type/classe Fraction
+	Fraction f1, f2, f3, f4, f, fp, t; // declaration de 4 variables/instances de type/classe Fraction
 
 	f1 = new Fraction(-4,5); // fabrication d'une instance de la classe Fraction à l'aide du constructeur a deux arguments entiers
 
@@ -16,6 +16,9 @@ class MainFraction { // Classe de test de Fraction et contenant la fonction prin
 
 	f4 = new Fraction(f2); // fabrication d'une instance de la classe Fraction par recopie de l'instance f2
 
+	f = new Fraction(1,2);
+	fp = new Fraction(1,3);
+
 	System.out.print ("f1 = "); System.out.println (f1.toString());
 	System.out.println ("f2 = " + f2.toString()); 
 	System.out.println ("f3 = " + f3.toString());
@@ -23,7 +26,7 @@ class MainFraction { // Classe de test de Fraction et contenant la fonction prin
 
 	/* A COMPLETER A PARTIR D'ICI !! */
 
-	System.out.println(f1.fractionReduite());
+	System.out.println(f.fractionPuissance(3));
     }
 }
 
