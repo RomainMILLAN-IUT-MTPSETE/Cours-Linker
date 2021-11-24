@@ -3,16 +3,32 @@ class Date {
     private int mois;
     private int annee;
 
+    /**
+     * Contructeur par défaut de Date
+     */
     public Date() {
         this.jour = 01;
         this.mois = 12;
         this.annee = 1999;
     }
+    /**
+     * Contructeur de Date
+     * @param jour
+     * @param mois
+     * @param annee
+     */
     public Date(int jour, int mois, int annee) {
         this.jour = jour;
         this.mois = mois;
         this.annee = annee;
     }
+    public Date(Date aCopier){
+        this.jour = aCopier.jour;
+        this.mois = aCopier.mois;
+        this.annee = aCopier.annee;
+    }
+    public String [] moisLettres = {"Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"};
+    public int an;
 
     public int getJour() {
         return this.jour;
@@ -35,6 +51,9 @@ class Date {
         this.annee = annee;
     }
     
+    /**
+     * La fonction 'incrementation', permet d'incrementer de 1, la date actuelle.
+     */
     public void incrementation(){
         switch(this.mois){
             case 1:
@@ -126,6 +145,9 @@ class Date {
         }
     }
 
+    /**
+     * La fonction 'dateAfter', permet de connaitre la date du lendemain de la date mise en parametre.
+     */
     public void dateAfter(){
         int jourAfter = this.jour;
         int mois = this.mois;
@@ -235,39 +257,20 @@ class Date {
         Ut.afficher(jourAfter + "/" + mois + "/" + annee);
     }
 
-
+    /**
+     * La fonction 'afficheDate', permet d'afficher une date en lettre.
+     * @return
+     */
     public String afficheDate(){
-        switch(mois){
-            case 1:
-                return this.jour + " Janvier " + this.annee;
-            case 2:
-                return this.jour + " Fevrier " + this.annee;
-            case 3:
-                return this.jour + " Mars " + this.annee;
-            case 4:
-                return this.jour + " Avril " + this.annee;
-            case 5:
-                return this.jour + " Mai " + this.annee;
-            case 6:
-                return this.jour + " Juin " + this.annee;
-            case 7:
-                return this.jour + " Juillet " + this.annee;
-            case 8:
-                return this.jour + " Aout " + this.annee;
-            case 9:
-                return this.jour + " Septembre " + this.annee;
-            case 10:
-                return this.jour + " Octobre " + this.annee;
-            case 11:
-                return this.jour + " Novembre " + this.annee;
-            case 12:
-                return this.jour + " Décembre " + this.annee;
-            default:
-                return null;
-        }
+        return this.jour + moisLettres[this.mois-1] + this.annee;
     }
 
 
+    /**
+     * La fonction 'secodneDate', permet de savoir par rapport à une deuxième date, si elle est antérieur, postérieur, ...
+     * @param d2
+     * @return
+     */
     public String secondeDate(Date d2){
         if(this.jour == d2.getJour() && this.mois == d2.getMois() && this.annee == d2.getAnnee()){
             return "Les deux jours sont égaux";
@@ -279,7 +282,16 @@ class Date {
             return null;
         }
     }
+    public int ecart(dateCorrection dateCorrection) {
+        return 0;
+    }
+    public boolean egale(Date d) {
+        return false;
+    }
+    public boolean egale(Date d) {
+        return false;
+    }
 
 
     
-}    
+}
