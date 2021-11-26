@@ -6,8 +6,8 @@ import java.lang.*;
 
 public class Ut {
 
-    public static void afficher (String ch) {
-	System.out.print(ch);
+    public static void afficher (Object object) {
+	System.out.print(object);
     }
     public static void afficherSL (String ch) {
 	afficher(ch); passerLigne();

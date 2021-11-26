@@ -2,11 +2,12 @@ class Voiture{
     String nom;
     int vitesse;
     int position;
+    int sens;
 
     public Voiture(String nom, int vitesse) {
         this.nom = nom;
         this.vitesse = vitesse;
-        this.position = 0;
+        this.sens = sens;
     }
     public Voiture(){
         this.nom = "CHARRADE";
@@ -35,13 +36,13 @@ class Voiture{
     }
 
     public String toString(){
-        return "Nom: " + this.nom + ", Vitesse: " + this.vitesse + ", Position: " + this.position;
+        return "Nom: " + this.nom + ", Vitesse: " + this.vitesse + ", Position: " + this.position + " Sens: " + this.sens;
     }
     public void toString2(){
         for(int o=0; o<this.position; o++){
-            System.out.print(" ");
+            System.out.print("-");
         }
-        char nom1 = this.nom.charAt(1);
+        char nom1 = this.nom.charAt(0);
         System.out.println(nom1);
     }
     public String leNom(){
@@ -58,8 +59,14 @@ class Voiture{
     public void avance(){
         this.position+=this.vitesse;
     }
+    public void avanceAl(int max){
+        this.position+=this.vitesse*Ut.randomMinMax(1, max);
+    }
     public void auDepart(){
         this.position=0;
+    }
+    public void faitDemiTour(){
+        this.sens = this.sens*(-1);
     }
 
 
