@@ -48,13 +48,11 @@ public class EE {
     }
 
     public boolean contient(int element){
-        boolean contient=false;
-        for(int i=0; i<this.cardinal-1; i++){
-            if(this.ensTab[i]==element){
-                contient=true;
-            }
+        boolean res=false;
+        if(contientPratique(element) !=-1){
+            res=true;
         }
-        return contient;
+        return res;
     }
 
     public void ajoutPratique(int e){
@@ -184,9 +182,32 @@ public class EE {
                 }
             }
         }
-        intersection += "}";
+        intersection += "} ";
 
         return intersection;
+    }
+
+    public String difference(EE b){
+        //Faire un A-B
+        String res = "{ ";
+
+        for(int i=0; i<this.ensTab.length; i++){
+            boolean resultB = true;
+            for(int j=0; j<b.ensTab.length; j++){
+                if(this.ensTab[i] == b.ensTab[j]){
+                    resultB = false;
+                }
+            }
+
+            if(resultB == true){
+                res += this.ensTab[i] + ",";
+            }
+        }
+
+        res += " }";
+
+
+        return res;
     }
 
     
