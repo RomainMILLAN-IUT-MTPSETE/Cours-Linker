@@ -1,7 +1,3 @@
-package td8;
-
-import ut.Ut;
-
 public class EE {
 
     private int[] ensTab;
