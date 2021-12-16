@@ -1,6 +1,4 @@
-package td8;
-
-import ut.Ut;
+package Java;
 
 public class EE {
 

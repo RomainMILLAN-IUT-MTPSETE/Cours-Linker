@@ -1,31 +1,64 @@
-import java.util.Random;
-
-import java.util.Random;
-
 public class Orque {
     private int id;
     private Arene arene;
-    private int nbOrques = 0;
-    private static int[] tabOrques = new int[1000];
+    private static int nbOrques = 0;
+    private static Orque[] tabOrques = new Orque[1000];
 
+    /**
+     * Constructeur de la classe Orque
+     * @param arene
+     */
     public Orque(Arene arene) {
         this.id = nbOrques;
+        this.tabOrques[this.id] = this;
         this.arene = arene;
-    }
+        nbOrques++;
+    }    
 
-    public int Combat(Orque adversaire){
-        Random rand = new Random();
-        int res = rand.nextInt(2 - 1 + 1) + 1;
-        int resultatCombat = -1;
-
-        if(res == 1){
-            resultatCombat = this.id;
-        }else {
-            resultatCombat = adversaire.id;
+    public String toString(){
+        String res ="";
+        for(int i=0; i<nbOrques; i++){
+            res += "{id: " + i + " | Arene:" + this.getOrqueByID(i).arene + "}";
         }
 
+        return null;
+    }
+
+    /**
+     * Getter d'ID d'orque
+     * @return
+     */
+    public int getId(){
+        return this.id;
+    }
+
+    /**
+     * On retourne un orque en fonction de son ID
+     * @param id
+     * @return
+     */
+    public static Orque getOrqueByID(int id){
+        return tabOrques[id];
+    }
+
+    /**
+     * On fait un combat d'orque et retourne un gagnant
+     * @param adversaire
+     * @return
+     */
+    public int Combat(Orque adversaire){
+        int random = Ut.randomMinMax(0, 1);
+        int resultatCombat = -1;
+
+        if(random == 1){
+            resultatCombat = this.id;
+        }else {
+            resultatCombat = adversaire.getId();
+        }
+        System.out.println("Le gagnent est : " + resultatCombat);
         return resultatCombat;
     }
+    
 
 
 }

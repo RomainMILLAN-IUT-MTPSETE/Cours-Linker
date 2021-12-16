@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "T.D. - 9/Java",
+        "T.D. - 9",
+        "T.D. - 8",
+        "Resources"
+    ],
+    "java.dependency.packagePresentation": "hierarchical"
+}

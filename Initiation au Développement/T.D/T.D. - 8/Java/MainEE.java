@@ -1,3 +1,5 @@
+package Java;
+
 public class MainEE {
 
     public static void main(String[] args){
@@ -22,7 +24,7 @@ public class MainEE {
         EE e1 = new EE(20, tab);
         EE e2 = new EE(20, tab2);
         System.out.println(e1.toString());
-        System.out.println(e1.difference(e2));
+        System.out.println(e1.differecence(e2));
     }
     
 }
