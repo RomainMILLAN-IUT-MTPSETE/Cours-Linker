@@ -1,4 +1,4 @@
-package Java;
+package td8;
 
 public class EE {
 
@@ -72,6 +72,9 @@ public class EE {
 
     private int contientPratique(int n) {
         int i = 0;
+        if(estVide()){
+            return -1;
+        }
         while ( i < this.cardinal-1 && ! ( this.ensTab[i] == n ) ) {
             i++;
         }
@@ -218,7 +221,7 @@ public class EE {
     public int retraitEltAleatoirement() {
         // Pré-requis : ensemble this est non vide
         // Résultat/action : enlève un élément de this (aléatoirement) et le renvoie
-        int i = Ut.randomMinMax (0, this.cardinal - 1);
+        int i = Java.Ut.randomMinMax (0, this.cardinal - 1);
         int select = retraitPratique(i);
         return select;
      }
@@ -226,7 +229,7 @@ public class EE {
      public int selectionEltAleatoirement() {
         // Pré-requis : ensemble this est non vide
         // Résultat : un élément quelconque de this choisi aléatoirement
-        int i = Ut.randomMinMax (0, this.cardinal - 1);
+        int i = Java.Ut.randomMinMax (0, this.cardinal - 1);
         return this.ensTab[i];
    }
    public int selectionElt() {

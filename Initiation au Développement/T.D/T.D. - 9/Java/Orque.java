@@ -1,5 +1,11 @@
+import td8.EE;
+
 public class Orque {
     private int id;
+    private int pdv;
+    private int poids;
+    private int agressivite;
+    private EE arme;
     private Arene arene;
     private static int nbOrques = 0;
     private static Orque[] tabOrques = new Orque[1000];
@@ -12,6 +18,7 @@ public class Orque {
         this.id = nbOrques;
         this.tabOrques[this.id] = this;
         this.arene = arene;
+        this.pdv = 100;
         nbOrques++;
     }    
 
@@ -47,7 +54,7 @@ public class Orque {
      * @return
      */
     public int Combat(Orque adversaire){
-        int random = Ut.randomMinMax(0, 1);
+        int random = Java.Ut.randomMinMax(0, 1);
         int resultatCombat = -1;
 
         if(random == 1){

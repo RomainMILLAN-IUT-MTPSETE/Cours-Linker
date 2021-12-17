@@ -4,5 +4,6 @@ public class MainCombat {
         Arene a2 = new Arene(12);
 
         a1.Bataille();
+        a2.Bataille();
     }
 }

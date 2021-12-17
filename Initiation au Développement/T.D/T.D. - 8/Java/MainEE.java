@@ -1,4 +1,6 @@
-package Java;
+package td8;
+
+import td8.EE;
 
 public class MainEE {
 
