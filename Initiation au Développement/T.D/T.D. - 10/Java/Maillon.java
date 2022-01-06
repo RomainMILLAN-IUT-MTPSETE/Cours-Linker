@@ -6,13 +6,13 @@ public class Maillon {
 
     /** Constructeur vide */
     public Maillon () { 
-	suivant = null; 
+	    suivant = null;
     }
 
     /** Constructeur avec la valeur */
     public Maillon (int n) { 
-	valeur = n;
-	suivant = null; 
+        valeur = n;
+        suivant = null;
     }
 
     public int getVal() {

@@ -5,14 +5,15 @@ public class Liste {
 
     /** Constructeur d'une liste vide
      */
-    public Liste () { 
-	/* TO DO */ 
-    }
+	public Liste() {
+		this.tete = null;
+	}
 
-    /** Constructeur d'une liste a un seul element
+	/** Constructeur d'une liste a un seul element
      */
     public Liste (int x) { 
-    	/* TO DO */
+    	Maillon teteMaillon = new Maillon(x);
+		this.tete = teteMaillon;
     }
     
   /** @param tabListe est un tableau contenant les elements de la liste
@@ -77,5 +78,175 @@ public class Liste {
 	}
 	return s + ")";
     }
+
+	public int longueur(){
+		int resultat = 1;
+		Maillon courant = this.tete;
+
+		while(courant.getSuiv() != null){
+			resultat++;
+			courant = courant.getSuiv();
+		}
+
+		return resultat;
+	}
+
+	public int somme(){
+		int resultat = 0;
+		Maillon courant = this.tete;
+
+		while(courant.getSuiv() != null){
+			resultat += courant.getVal();
+			courant = courant.getSuiv();
+		}
+
+		return resultat;
+	}
+
+	public int dernierElt(){
+		int resultat = 0;
+		Maillon courant = this.tete;
+
+		while(courant.getSuiv() != null){
+			courant = courant.getSuiv();
+		}
+
+		resultat = courant.getVal();
+		return resultat;
+	}
+
+	public boolean estSupK1(int k){
+		return (longueur() >= k);
+	}
+
+	public boolean estSupK2 (int k){
+		boolean resultat = false;
+		int calcul = 1;
+		Maillon courant = this.tete;
+
+		while(courant.getSuiv() != null && resultat == false){
+			calcul++;
+			if(calcul >= k){
+				resultat = true;
+			}
+			courant = courant.getSuiv();
+		}
+
+		return  resultat;
+	}
+
+	public boolean aLgPaire(){
+		return (longueur()%2 == 0);
+	}
+
+	public int max(){
+		int resultat = 0;
+		Maillon courant = this.tete;
+
+		while(courant.getSuiv() != null){
+			if(courant.getVal() > resultat){
+				resultat = courant.getVal();
+			}
+
+			courant = courant.getSuiv();
+		}
+
+		return resultat;
+	}
+
+	public int occurrences(int nb){
+		int resultat = 0;
+		Maillon courant = this.tete;
+
+		while(courant.getSuiv() != null){
+			if(courant.getVal() == nb){
+				resultat++;
+			}
+			courant = courant.getSuiv();
+		}
+
+		return resultat;
+	}
+
+	public void ajoutFin(int n){
+		Maillon dernier = new Maillon(n);
+		Maillon courant = this.tete;
+
+		while(courant.getSuiv() != null){
+			courant = courant.getSuiv();
+		}
+
+		courant.setSuiv(dernier);
+	}
+
+	public void ajoutFinSiAbsent(int n){
+		if(this.contient(n) == false){
+			ajoutFin(n);
+		}
+	}
+
+	public Liste extraireImpairsTete(){
+		Liste listeThisImpair = new Liste();
+		Maillon courant = this.tete;
+
+		while(courant.getSuiv() != null){
+			if(courant.getVal()%2!=0){
+				listeThisImpair.ajoutTete(courant.getVal());
+			}
+
+			courant = courant.getSuiv();
+		}
+
+		return listeThisImpair;
+	}
+
+	public Liste extraireImpairsQueue(){
+		Liste listeThisImpair = new Liste();
+		Maillon courant = this.tete;
+
+		while(courant.getSuiv() != null){
+			if(courant.getVal()%2!=0){
+				if(listeThisImpair.tete == null){
+					listeThisImpair.ajoutTete(courant.getVal());
+				}else {
+					listeThisImpair.ajoutFin(courant.getVal());
+				}
+
+			}
+
+			courant = courant.getSuiv();
+		}
+
+		return listeThisImpair;
+	}
+
+	public void supprOcc(int n){
+		boolean resultat = false;
+
+		if(this.tete.getVal() == n){
+			this.tete.setSuiv(this.tete.getSuiv());
+			resultat = true;
+		}
+
+		Maillon courant = this.tete.getSuiv();
+		Maillon courantLast = this.tete;
+
+		while(courant.getSuiv() != null && resultat == false){
+			if(courant.getVal() == n && resultat == false){
+				courant = courantLast.getSuiv();
+				courantLast.setSuiv(courant.getSuiv());
+				resultat = true;
+			}
+			courant = courant.getSuiv();
+			courantLast = courantLast.getSuiv();
+		}
+
+		if(courant.getVal() == n && resultat == false){
+			courantLast.setSuiv(null);
+			resultat = true;
+		}
+	}
+
+
 
 } // end class
