@@ -206,7 +206,7 @@ public class Liste {
 
 		while(courant.getSuiv() != null){
 			if(courant.getVal()%2!=0){
-				if(listeThisImpair.tete == null){
+				if(listeThisImpair.estVide() == true){
 					listeThisImpair.ajoutTete(courant.getVal());
 				}else {
 					listeThisImpair.ajoutFin(courant.getVal());
@@ -231,6 +231,7 @@ public class Liste {
 		Maillon courant = this.tete.getSuiv();
 		Maillon courantLast = this.tete;
 
+
 		while(courant.getSuiv() != null && resultat == false){
 			if(courant.getVal() == n && resultat == false){
 				courant = courantLast.getSuiv();
@@ -243,7 +244,78 @@ public class Liste {
 
 		if(courant.getVal() == n && resultat == false){
 			courantLast.setSuiv(null);
-			resultat = true;
+		}
+	}
+
+	public void tronquerK(int k){
+		if(this.estSupK2(k) == true){
+			Maillon courant = this.tete;
+			int index = 0;
+
+			while(courant.getSuiv() != null && index < k){
+				courant = courant.getSuiv();
+				index++;
+			}
+
+			courant.setSuiv(null);
+		}
+	}
+
+	public boolean estClone(Liste LClone){
+		boolean resultat = true;
+		Maillon courant = this.tete;
+		Maillon courantClone = LClone.tete;
+
+		if(this.longueur() != LClone.longueur()){
+			resultat = false;
+		}
+
+		while(courant.getSuiv() != null && resultat == true){
+			if(courant.getVal() != courantClone.getVal()){
+				resultat = false;
+			}
+
+			courant = courant.getSuiv();
+			courantClone = courantClone.getSuiv();
+		}
+
+		return resultat;
+	}
+
+	public Liste inverse(){
+		Liste listeInverse = new Liste();
+		Maillon courant = this.tete;
+
+		while(courant.getSuiv() != null){
+			listeInverse.ajoutTete(courant.getVal());
+			courant = courant.getSuiv();
+		}
+
+		return listeInverse;
+	}
+
+	public void suppToutesOcc(int k){
+		Maillon courant = this.tete.getSuiv();
+		Maillon suiveur = this.tete;
+
+		if(this.tete.getVal() == k){
+			courant = courant.getSuiv();
+			suiveur = suiveur.getSuiv();
+			this.tete.setSuiv(suiveur);
+		}
+
+		while(courant.getSuiv() != null){
+			if(courant.getVal() == k){
+				suiveur.setSuiv(courant.getSuiv());
+				courant = courant.getSuiv();
+			}else {
+				courant = courant.getSuiv();
+			}
+			suiveur = suiveur.getSuiv();
+		}
+
+		if(courant.getVal() == k){
+			suiveur.setSuiv(null);
 		}
 	}
 

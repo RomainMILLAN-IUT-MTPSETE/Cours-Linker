@@ -68,7 +68,7 @@ public class MainListe {
 	L2.supprOcc(-3);
 	System.out.println("Suppr first -3 de L2 = " + L2);
 
-	/*L2.tronquerK(2);
+	L2.tronquerK(2);
 	System.out.println("Tronque L2 indice 2 = " + L2);
 
 	int[] tab4 = {1, 2, 3, 4};
@@ -93,7 +93,7 @@ public class MainListe {
 	System.out.print("L4 a l'envers = " + L4.inverse());
 	System.out.println("");
 
-	System.out.print("Inversion en place de L4 = ");
+	/**System.out.print("Inversion en place de L4 = ");
 	L4.inverseRec();
 	System.out.println(L4);
 
