@@ -18,7 +18,7 @@ public class Start {
 
     public static void main(String[] args) throws LoginException{
         System.out.println(looger + "Logining ...");
-        JDA jda = JDABuilder.createDefault("ODkxOTUwNzAzNTIwNjQ5MjI2.YVFz0w.aFmSKoDb4HhnrEZfGeh893pP-4o").setIdle(true).setActivity(Activity.playing("Bureau des Etudiants - by Skytor-Studio")).build();
+        JDA jda = JDABuilder.createDefault(TOKEN).setIdle(true).setActivity(Activity.playing("Bureau des Etudiants - by Wabezete")).build();
         System.out.println(looger + "B.D.E. BOT - login at version : " + version);
 
         jda.addEventListener(new commandEDT());
