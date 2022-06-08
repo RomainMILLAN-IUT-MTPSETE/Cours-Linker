@@ -280,7 +280,7 @@ CREATE TABLE S24_departement_se_caracterise(
    année NUMBER(10),
    PRIMARY KEY(numDepartement, numDepartement_1, année),
    FOREIGN KEY(numDepartement) REFERENCES S24_Departement(numDepartement),
-   FOREIGN KEY(numDepartement_1, année) REFERENCES S24_Donnes_Par_departement(numDepartement, année)
+   FOREIGN KEY(numDepartement_1, année) REFERENCES S24_Donnees_Par_departement(numDepartement, année)
 );
 
 CREATE TABLE S24_UU_Caractérise(
