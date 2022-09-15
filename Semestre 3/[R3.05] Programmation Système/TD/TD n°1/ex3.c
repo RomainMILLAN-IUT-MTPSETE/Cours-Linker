@@ -10,9 +10,9 @@ int main(void)
     pid_t pid = fork();
     if (!pid){
         // fils ici
-        char *const args[] = { "simulateurexit", NULL};
+        char *const args[] = { "ex3_simulateur", NULL};
         int ret;
-        ret = execv("./ simulateurexit", args);
+        ret = execv("./ex3_simulateur", args);
 
         if (ret == -1)
         {
