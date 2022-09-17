@@ -1,3 +1,4 @@
+//INCLUDES
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
@@ -7,30 +8,32 @@
 
 int main(void){
 
+    //While inifinity
     while(1){
+        //VARIABLES
         char command[300];
         char *args;
         char *cmd[10] = {NULL};
         int dowait = 0;
 
         printf("Commande: "); //Print 'Commande:'
-        fgets(command, sizeof(command), stdin);  // read the command
-        command[strcspn(command, "\n")] = 0; //remove /n at the end
-        args = strtok (command, " "); //Get all arguments by the command
+        fgets(command, sizeof(command), stdin);  // read the command of the user
+        command[strcspn(command, "\n")] = 0; //remove /n at the end of the commande becaus the fgets function add an /n at the end of the character tab.
+        args = strtok (command, " "); //Explode the use command into multiple arguments.
 
-        //Tant que args et différent de NULL
+        //When args is not NULL
         int i=0;
         while(args != NULL){
-            //id args is '&'
+            //If the argument is '&' do
             if(strcmp(&args[0], "&") == 0){
-                //To dowait to 1
+                //Put the variable dowait to 1 to not wait the child when the exec has execute.
                 dowait = 1;
             }else {
-                //Put in cmd tab the args
+                //Put the argument in progress on a string character.
                 cmd[i] = args;
                 i++;
             }
-            //Pass to next argument
+            //Past to the next argument
             args = strtok(NULL, " ");
         }
 
@@ -38,12 +41,13 @@ int main(void){
         pid_t pid = fork();
         if(pid == 0){
             //Child
+            //Execution of the command
             execvp(cmd[0], cmd);
         }
 
-        //if do wait
+        //If I do wait the child
         if(dowait == 0){
-            //Wait
+            //I wait the child
             waitpid(pid, NULL, 0);
         }
     }
