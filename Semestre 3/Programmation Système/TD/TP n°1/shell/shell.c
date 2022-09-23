@@ -18,23 +18,22 @@ int main(void){
 
         printf("Commande: "); //Print 'Commande:'
         fgets(command, sizeof(command), stdin);  // read the command of the user
-        command[strcspn(command, "\n")] = 0; //remove /n at the end of the commande becaus the fgets function add an /n at the end of the character tab.
+        command[strcspn(command, "\n")] = 0; //remove /n at the end of the commande because the fgets function add an /n at the end of the character tab.
         args = strtok (command, " "); //Explode the use command into multiple arguments.
 
         //When args is not NULL
         int i=0;
         while(args != NULL){
-            //If the argument is '&' do
-            if(strcmp(&args[0], "&") == 0){
-                //Put the variable dowait to 1 to not wait the child when the exec has execute.
-                dowait = 1;
-            }else {
-                //Put the argument in progress on a string character.
-                cmd[i] = args;
-                i++;
-            }
+            //Put the argument in progress on a string character.
+            cmd[i] = args;
+            i++;
             //Past to the next argument
             args = strtok(NULL, " ");
+        }
+
+        if(strcmp(cmd[i-1], "&") == 0){
+            dowait = 1;
+            cmd[i-1] = NULL;
         }
 
         //Child creation
