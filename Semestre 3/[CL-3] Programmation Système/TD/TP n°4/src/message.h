@@ -8,6 +8,6 @@
 #define TEMPLATE_CMD "echo '%s' | bc"
 
 struct requete_client_serveur {
-pid_t client_pid; //PID du Client
-char expression[BUFFER_SIZE - 1]; //text de l expression a evaluer.
+    pid_t client_pid; //PID du Client
+    char expression[BUFFER_SIZE - 1]; //text de l expression a evaluer.
 };
