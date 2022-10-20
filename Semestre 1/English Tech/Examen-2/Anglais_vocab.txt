@@ -1,0 +1,121 @@
+English Vocabulary
+Longueur/Longue	Length/Long
+Largeur/Large	Width/Wide
+Hauteur/Haut	Height/High
+Profondeur/Profond	Depth/Deep
+——————————————	——————————————
+Plastique	Plastic
+Metal	Metal
+Acier	Steel
+Verre	Glass
+Ceramique	Ceramic
+Toile	Cloth
+Fer	Iron
+——————————————	——————————————
+Carte graphique	Graphic Card
+Carte son	Sound Card
+Processeur	Processor
+Mémoire RAM	RAM memory (Random accès memory)
+Carte mère	Motherboard
+Disque dur	HDD (Hard drive disk)
+SSD	SSD (Solid state drive)
+Ventilateur de refroidissement	Cooling fan
+Boitier d’alimentation	Power supply unit (PSU)
+——————————————	——————————————
+Graveur DVD	DVD player/Writer/Burner
+Interrupteur	Power switch
+Bouton de réinitialisation	Reset switch
+Signaux lumineux	Indicator lights
+Prise jack	Headphone jack
+Port USB	USB port
+Connecteurs	Connectors
+——————————————	——————————————
+Frapper	To strike
+Maintenir	To hold
+Saisir	To type/key/enter
+Relâcher	To release
+Faire défiler vers le haut/bas/à travers	To scroll up/down/through
+Brancher	To hook up
+Cliquer	To flick
+Pincer	To pinch
+Presser	To squeeze
+Diffuser	To spread
+——————————————	——————————————
+Une touche bascule	A toggle key
+Un clavier rétroéclairé 	A backlit keyboard
+Une tapis de souris	A mouse pad
+Un cable	A wire/cord
+La charnière	The hinge
+La lunette	The bezel
+Une librairie	A bookshop
+Une bibliothèque	A library
+Un PDG	A chief executive officer
+Un bureau d’entreprise	Company’s office
+Une multiprise	A multiple socket
+Une prise	A power socket
+Un stage 	An internship 
+Un sondage	A survey
+Zéro	Nought 
+Emplacement	Location
+Plateau de la carte mère	Motherboard tray
+Vis 	Screws
+Évitez de le forcer	Avoid forcing it
+D’habitude	Usually
+——————————————	——————————————
+Racine carte	Square root
+<=	Less than or equal to
+>=	More than or equal to
+b² 	B squared
+b³ 	B to the third
+Milliard	Billion
+9/10	Nine out of ten
+1/5	One on fifth
+10/2	Ten divided by 2
+Une fois	One times/Once
+Deux fois	Two times/Twice
+Trois fois	Three times/?
+Trois fois et demi	Tree times and half
+Doubler	Twofold
+Tripler	Threefold
+Quadrupler 	Fourfold
+6 x 4	Six times four
+1950’s	Fifties 
+-	Hyphen
+_	Underscore
+?/!	Question/Exclamation mark
+:/;	Colon/Semi-colon
+,	Comma
+~	Tilde
+*	Asterisk
+£	Pound
+%	Percent
+()	Open/close parenthesis 
+[]	Open/close bracket
+——————————————	——————————————
+8:15	Eight fifteen/A quarter past height
+8:30	Eight thirty/A half past eight
+8:45	Eight forty-five/A quarter to nine
+8:50	Height fifty/ A ten to nine
+12h	Twelve o’clock
+Le matin	In the morning
+L’après-midi	In the afternoon
+Le soir	In the evening
+Le 11 Septembre	September 11th
+——————————————	——————————————
+ACTIVE SENTENCES	Tim hit the ball
+PASSIVE SENTENCES	The ball was hit by Tim
+Pour les verbes irréguliers 	-> 3 ème colonne
+——————————————	——————————————
+SUPERLATIVE	-est, -iest or more
+Exception : 	Good -> Best
+Far -> Furthest	Bad -> Worst
+COMPARATIVE	-er, -ier, or more (-ly)
+Exception : 	Good -> Better
+Far -> Further	Bad -> Worse
+——————————————	——————————————
+PRETERIT	-ed 
+Pour les verbes irréguliers	-> 2 ème colonne
+——————————————	——————————————
+PRÉSENT PERFECT	have (ou has pour le 3 ème personne du singulier) + ed 
+Pour les verbes irréguliers 	-> 3 ème colonne
+
