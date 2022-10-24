@@ -23,7 +23,10 @@ void creation_tube_nomme() {
 void envoyer_expression(char* exp){
     struct requete_client_serveur rcs;
     rcs.client_pid = pid;
-    strcpy(rcs.expression, exp);
+
+    char expression[BUFFER_SIZE-1];
+    sprintf(expression, TEMPLATE_CMD, exp);
+    strcpy(rcs.expression, expression);
     if((fifo_serveur_fd = open(FIFO_SERVEUR, O_WRONLY)) == -1){
         printf("EnvoyerExpression - OPEN");
         exit(1);
@@ -32,6 +35,8 @@ void envoyer_expression(char* exp){
         printf("EnvoyerExpression - WRITE");
         exit(1);
     }
+
+    close(fifo_serveur_fd);
 }
 
 void recevoir_resultat(){
@@ -44,17 +49,20 @@ void recevoir_resultat(){
         printf("RecevoirResultat - READ");
         exit(1);
     }
+
+    close(fifo_me_fd);
     printf("Clt: %s\n", bufferResultat);
 }
     
 void terminer(){
     remove( pathname );
+    printf("Die");
 }
 
 int main(int argc, char** argv){
     creation_tube_nomme();
     envoyer_expression(argv[1]);
-    //recevoir_resultat();
+    recevoir_resultat();
     terminer();   
     return 0;
 }
