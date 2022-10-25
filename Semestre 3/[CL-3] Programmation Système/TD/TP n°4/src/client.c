@@ -51,12 +51,15 @@ void recevoir_resultat(){
     }
 
     close(fifo_me_fd);
-    printf("Clt: %s\n", bufferResultat);
+    //DEBUG
+    //printf("Clt: %s\n", bufferResultat);
+    printf("Résultat: %s\n", bufferResultat);
 }
     
 void terminer(){
     remove( pathname );
-    printf("Die");
+    //DIE
+    //printf("Die");
 }
 
 int main(int argc, char** argv){

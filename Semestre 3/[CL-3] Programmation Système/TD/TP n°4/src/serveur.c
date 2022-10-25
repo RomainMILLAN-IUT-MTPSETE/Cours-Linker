@@ -30,7 +30,8 @@ void recevoir_requete(){
     }
 
     close(fifo_me);
-    printf("Sever: %s\n", requete.expression);
+    //DEBUG
+    //printf("Sever: %s\n", requete.expression);
 }
 
 void envoyer_resultat(){
