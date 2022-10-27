@@ -171,4 +171,18 @@ public class EX1 {
             resoudreAux(n-1,k,i,j);
         }
     }
+
+
+    //BONUS
+    public static int PGCD(int a, int b){
+        if(a==b){
+            return a;
+        }else {
+            if(b<a){
+                return PGCD(b, a-b);
+            }else {
+                return PGCD(a, b-a);
+            }
+        }
+    }
 }
