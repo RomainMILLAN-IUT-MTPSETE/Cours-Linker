@@ -1,7 +1,7 @@
 public class EX1 {
 
     public static void main(String[] args) {
-        System.out.println(f(6));
+        resoudre(6);
     }
 
     //EX1
@@ -159,6 +159,16 @@ public class EX1 {
     //F = Suite de fibonnachi
 
     //EX9
-
-
+    private static void resoudre(int n){
+        resoudreAux(n,1,2 ,3);
+    }
+    private static void resoudreAux(int n, int i, int k, int j){
+        if(n == 1){
+            System.out.println(i + " => " + j);
+        }else {
+            resoudreAux(n-1,i,j,k);
+            System.out.println(i + " => " + j);
+            resoudreAux(n-1,k,i,j);
+        }
+    }
 }
