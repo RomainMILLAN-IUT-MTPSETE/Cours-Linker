@@ -40,17 +40,22 @@ main() {
     // boucle sans fin pour la gestion des connexions
     while(1)
     { // attente connexion client
-        printf("En attente d un client\n");
+        printf("En attente d'un client\n");
 
         socket2 = accept(sock, (struct sockaddr *)&local, &lg);
         //??
-        printf("client connecte \n");
+        printf("Client connecté\n");
         strcpy(mess, "");
         while (strncmp(mess, "fin", 3) != 0) {
             read(socket2, mess, 80);
-            printf("le client me dit %s \n", mess);
-            write(socket2, "message recu !", 80);
+            printf("le client me dit: %s \n", mess);
+
+            printf("Ma réponse: \n");
+            gets(mess);
+
+            write(socket2, mess, 80);
         }
-        close(socket2); // on lui ferme la socket
+        printf("Clinet déconnecté");
+        //close(socket2); // on lui ferme la socket
     }
 }

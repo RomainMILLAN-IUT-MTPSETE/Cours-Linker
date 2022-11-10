@@ -44,19 +44,19 @@ main() {
         perror("Connexion impossible:");
         exit(1);
     }
-    printf("Connexion avec le serveur ok\n");
+    printf("Connexion avec le serveur OK\n");
     //dialogue avec le serveur
     strcpy(mess, "");
     while(strncmp(mess, "fin", 3) != 0)
     { // attente connexion client
-        printf("Question: \n");
+        printf("Entre ton texte: \n");
         gets(mess);
 
         write(sock,mess,80);
         read(sock,mess,80);
-        printf("Reponse: %s\n", mess);
-
+        printf("Réponse du serveur: %s\n", mess);
     }
+    printf("Fin connexion");
     close(sock); // on lui ferme la socket
 
 }
