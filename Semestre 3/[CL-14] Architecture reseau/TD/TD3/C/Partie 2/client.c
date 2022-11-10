@@ -10,7 +10,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define SERV "172.16.21.204"
+#define SERV "127.0.0.1"
 #define PORT 12345
 
 int port,sock;
