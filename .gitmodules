@@ -1,2 +1,5 @@
 [submodule "Semestre 2/Dev. Objets/Travaux Pratiques - T.P/T.P. 06/TP6"]
 	url = https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/millanr/TP6
+[submodule "Semestre 3/[CL-16] Qualité de Développement/TD/TD 2/q5-td2-millanromain"]
+	path = Semestre 3/[CL-16] Qualité de Développement/TD/TD 2/q5-td2-millanromain
+	url = https://Wabez3ter@github.com/IUTInfoMontpellierSete-R304/q5-td2-millanromain.git
