@@ -3,11 +3,11 @@
 
 ## Comment les télécharger
 ### Par les releases
-En effet vous pouvez avoir acces aux contenue pas les releases qui sortent lors d'évenement (Fin de semestre, Vacances, ...).<br/>
-Pour voir les releases [cliquez-ici](https://github.com/Wabez3ter/Cours-Linker/releases)
+En effet vous pouvez avoir acces aux contenue pas les releases qui sortent lors de fin de semestre.<br/>
+Pour voir les releases [cliquez-ici](https://bitbucket.org/wabezeter/cours-linker/downloads/)
 
-### Par github
-Je ne sais pas si vous le savez mais vous pouvez directement télécharger tous les fichier dans un .zip grace à github ...
+### Par bitbucket
+Je ne sais pas si vous le savez mais vous pouvez directement télécharger tous les fichier dans un .zip grace à bitbucket ...
 
 <br/><br/><br/><br/><br/>
 > Cordialement, MILLAN Romain
