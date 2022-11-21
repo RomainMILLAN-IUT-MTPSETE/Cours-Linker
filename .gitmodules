@@ -3,3 +3,6 @@
 [submodule "Semestre 3/[CL-16] Qualité de Développement/TD/TD 2/q5-td2-millanromain"]
 	path = Semestre 3/[CL-16] Qualité de Développement/TD/TD 2/q5-td2-millanromain
 	url = https://Wabez3ter@github.com/IUTInfoMontpellierSete-R304/q5-td2-millanromain.git
+[submodule "Semestre 3/[CL-13] Développement efficace/TD/TD 3"]
+	path = Semestre 3/[CL-13] Développement efficace/TD/TD 3
+	url = https://millanr@gitlabinfo.iutmontp.univ-montp2.fr/millanr1/tp3-listes.git
