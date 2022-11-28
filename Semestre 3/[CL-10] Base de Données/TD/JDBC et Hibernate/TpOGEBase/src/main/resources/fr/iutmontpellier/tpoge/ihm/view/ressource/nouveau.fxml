@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<VBox onKeyPressed="#validerFormulaire" fx:id="container" spacing="20" alignment="CENTER" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="fr.iutmontpellier.tpoge.application.ressource.NouvelleRessourceController"
+      prefHeight="150.0" prefWidth="300.0">
+    <Text scaleX="2" scaleY="2">Nouvelle ressource</Text>
+    <GridPane alignment="CENTER" hgap="10" vgap="10">
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="0">Nom</Label>
+        <TextField fx:id="nomRessourceField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+    </GridPane>
+    <Button onAction="#creerRessource" alignment="CENTER">Créer la ressource</Button>
+</VBox>

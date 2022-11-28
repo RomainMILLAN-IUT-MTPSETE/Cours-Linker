@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<VBox onKeyPressed="#validerFormulaire" fx:id="container" spacing="20" alignment="CENTER" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="fr.iutmontpellier.tpoge.application.etudiant.EditionEtudiantController"
+      prefHeight="250.0" prefWidth="400.0">
+    <Text scaleX="2" scaleY="2">Editer l'étudiant</Text>
+    <GridPane alignment="CENTER" hgap="10" vgap="10">
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="0">Nom</Label>
+        <TextField fx:id="nomField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="0">Prénom</Label>
+        <TextField fx:id="prenomField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="0">Ressource favorite</Label>
+        <ComboBox fx:id="ressourceBox" GridPane.rowIndex="2" GridPane.columnIndex="1">
+
+        </ComboBox>
+    </GridPane>
+    <Button onAction="#modifierEtudiant" alignment="CENTER">Modifier l'étudiant</Button>
+</VBox>

@@ -1,0 +1,3 @@
+<template>
+  <input-field default="fr.iutnevers.project">IJ_BASE_PACKAGE</input-field>
+</template>
