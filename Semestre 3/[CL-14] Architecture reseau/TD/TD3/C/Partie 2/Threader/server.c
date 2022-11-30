@@ -7,6 +7,11 @@
 #include <sys/types.h>
 #include <strings.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <unistd.h>
 
 #define PORT 12345
 int sock, socket2, lg;
@@ -34,28 +39,37 @@ main() {
     // creation socket
     creer_socket();
 
-    if(listen(sock, 3) == -1){ perror("listen"); exit(1);}
-    //?? // mise a l ecoute
+    if(listen(sock, 2) == -1){ perror("listen"); exit(1);}
+    // mise a l ecoute
 
     // boucle sans fin pour la gestion des connexions
-    while(1)
-    { // attente connexion client
+    while(1){ // attente connexion client
         printf("En attente d'un client\n");
+        int clt = 0;
 
         socket2 = accept(sock, (struct sockaddr *)&local, &lg);
-        //??
-        printf("Client connecté\n");
-        strcpy(mess, "");
-        while (strncmp(mess, "fin", 3) != 0) {
-            read(socket2, mess, 80);
-            printf("le client me dit: %s \n", mess);
+        clt++;
+        int i = fork();
+        if(i == 0){
+            //FILS
+            printf("Client n°%i connecté\n", clt);
+            strcpy(mess, "");
+            while (strncmp(mess, "fin", 3) != 0) {
+                read(socket2, mess, 80);
+                printf("le client n°%i me dit: %s \n", clt, mess);
 
-            printf("Ma réponse: \n");
-            gets(mess);
+                printf("Ma réponse au client n°%i: \n", clt);
+                gets(mess);
 
-            write(socket2, mess, 80);
+                write(socket2, mess, 80);
+            }
+            printf("Client n°%i déconnecté", clt);
+            clt--;
+            close(socket2);
+            exit(1);
+        }else {
+            clt--;
         }
-        printf("Clinet déconnecté");
         //close(socket2); // on lui ferme la socket
     }
 }

@@ -55,7 +55,7 @@ main() {
 
             write(socket2, mess, 80);
         }
-        printf("Clinet déconnecté");
+        printf("Client déconnecté");
         //close(socket2); // on lui ferme la socket
     }
 }
