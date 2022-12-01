@@ -1,18 +1,28 @@
 package fr.iutmontpellier.tpoge.metier.entite;
 
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@DynamicUpdate
+@Entity
+@Table(name = "RessourcesOGE")
 public class Ressource {
 
+    @Id
+    @GenericGenerator(name = "ressourceAuto", strategy = "increment")
+    @GeneratedValue(generator = "ressourceAuto")
     private int idRessource;
 
+    @Column
     private String nom;
 
     public Ressource(String nom) {
         this.nom = nom;
     }
 
-    public Ressource() {
-
-    }
+    public Ressource() { }
 
     public int getIdRessource() {
         return idRessource;

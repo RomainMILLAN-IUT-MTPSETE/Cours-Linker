@@ -1,5 +1,8 @@
 package fr.iutmontpellier.tpoge.metier.manager;
 
+import com.gasquet.hrepositories.api.EntityRepository;
+import com.gasquet.hrepositories.utils.RepositoryManager;
+import fr.iutmontpellier.tpoge.metier.entite.Note;
 import fr.iutmontpellier.tpoge.metier.entite.Ressource;
 import fr.iutmontpellier.tpoge.stockage.stub.StockageRessourceDatabase;
 
@@ -11,7 +14,7 @@ import java.util.List;
  */
 public class RessourceManager {
 
-    private StockageRessourceDatabase stockageRessourceDatabase = new StockageRessourceDatabase();
+    private EntityRepository<Ressource> repository = RepositoryManager.getRepository(Ressource.class);
 
     private final static RessourceManager INSTANCE = new RessourceManager();
 
@@ -26,8 +29,7 @@ public class RessourceManager {
      * @param nom : Nom de la {@link Ressource} à créer
      */
     public void createRessource(String nom) {
-        System.out.println(nom);
-        stockageRessourceDatabase.create(new Ressource(nom));
+        repository.create(new Ressource(nom));
     }
 
     /**
@@ -39,7 +41,7 @@ public class RessourceManager {
     public void updateRessource(int idRessource, String nom) {
         Ressource r = this.getRessource(idRessource);
         r.setNom(nom);
-        stockageRessourceDatabase.update(r);
+        repository.update(r);
     }
 
     /**
@@ -47,7 +49,7 @@ public class RessourceManager {
      * @param idRessource : identifiant de la {@link Ressource} à supprimer
      */
     public void deleteRessource(int idRessource) {
-        stockageRessourceDatabase.deleteById(idRessource);
+        repository.deleteById(idRessource);
     }
 
     /**
@@ -56,7 +58,7 @@ public class RessourceManager {
      * @return L'instance de {@link Ressource} correspondant à l'identifiant
      */
     public Ressource getRessource(int idRessource) {
-        return stockageRessourceDatabase.getById(idRessource);
+        return repository.findByID(idRessource);
     }
 
     /**
@@ -64,6 +66,6 @@ public class RessourceManager {
      * @return La liste de toutes les {@link Ressource}
      */
     public List<Ressource> getRessources() {
-        return stockageRessourceDatabase.getAll();
+        return repository.findAll();
     }
 }

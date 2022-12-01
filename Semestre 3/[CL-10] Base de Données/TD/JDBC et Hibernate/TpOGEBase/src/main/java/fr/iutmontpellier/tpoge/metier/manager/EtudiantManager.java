@@ -1,5 +1,7 @@
 package fr.iutmontpellier.tpoge.metier.manager;
 
+import com.gasquet.hrepositories.api.EntityRepository;
+import com.gasquet.hrepositories.utils.RepositoryManager;
 import fr.iutmontpellier.tpoge.metier.entite.Etudiant;
 import fr.iutmontpellier.tpoge.metier.entite.Ressource;
 import fr.iutmontpellier.tpoge.stockage.stub.StockageEtudiantDatabase;
@@ -12,7 +14,7 @@ import java.util.List;
  */
 public class EtudiantManager {
 
-    private StockageEtudiantDatabase stockageEtudiantDatabase = new StockageEtudiantDatabase();
+    private EntityRepository<Etudiant> repository = RepositoryManager.getRepository(Etudiant.class);
 
     private final static EtudiantManager INSTANCE = new EtudiantManager();
 
@@ -30,7 +32,7 @@ public class EtudiantManager {
      * @param idRessource : identifiant de la {@link Ressource} favorite de l'étudiant
      */
     public void createEtudiant(String nom, String prenom, int idRessource) {
-        stockageEtudiantDatabase.create(new Etudiant(nom, prenom, RessourceManager.getInstance().getRessource(idRessource)));
+        repository.create(new Etudiant(nom, prenom, RessourceManager.getInstance().getRessource(idRessource)));
     }
 
     /**
@@ -43,9 +45,9 @@ public class EtudiantManager {
      * @param idRessource : identifiant de la nouvelle ressource favorite de l'étudiant
      */
     public void updateEtudiant(int idEtudiant, String nom, String prenom, int idRessource) {
-        stockageEtudiantDatabase.getById(idEtudiant).setNom(nom);
-        stockageEtudiantDatabase.getById(idEtudiant).setPrenom(prenom);
-        stockageEtudiantDatabase.getById(idEtudiant).setRessourceFavorite(RessourceManager.getInstance().getRessource(idRessource));
+        repository.findByID(idEtudiant).setNom(nom);
+        repository.findByID(idEtudiant).setPrenom(prenom);
+        repository.findByID(idEtudiant).setRessourceFavorite(RessourceManager.getInstance().getRessource(idRessource));
     }
 
     /**
@@ -53,7 +55,7 @@ public class EtudiantManager {
      * @param idEtudiant : identifiant de l'étudiant à supprimer
      */
     public void deleteEtudiant(int idEtudiant) {
-        stockageEtudiantDatabase.deleteById(idEtudiant);
+        repository.deleteById(idEtudiant);
     }
 
     /**
@@ -62,7 +64,7 @@ public class EtudiantManager {
      * @return L'instance de {@link Etudiant} correspondant à l'identifiant
      */
     public Etudiant getEtudiant(int idEtudiant) {
-        return stockageEtudiantDatabase.getById(idEtudiant);
+        return repository.findByID(idEtudiant);
     }
 
     /**
@@ -70,6 +72,6 @@ public class EtudiantManager {
      * @return La liste de tous les etudiants.
      */
     public List<Etudiant> getEtudiants() {
-        return stockageEtudiantDatabase.getAll();
+        return repository.findAll();
     }
 }

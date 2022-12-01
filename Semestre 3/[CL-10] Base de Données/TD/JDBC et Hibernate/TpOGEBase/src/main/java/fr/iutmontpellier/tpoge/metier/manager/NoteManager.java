@@ -1,5 +1,8 @@
 package fr.iutmontpellier.tpoge.metier.manager;
 
+import com.gasquet.hrepositories.api.EntityRepository;
+import com.gasquet.hrepositories.utils.RepositoryManager;
+import fr.iutmontpellier.tpoge.metier.entite.Etudiant;
 import fr.iutmontpellier.tpoge.metier.entite.Note;
 
 /**
@@ -8,6 +11,7 @@ import fr.iutmontpellier.tpoge.metier.entite.Note;
  */
 public class NoteManager {
 
+    private EntityRepository<Note> repository = RepositoryManager.getRepository(Note.class);
     private final static NoteManager INSTANCE = new NoteManager();
 
     private NoteManager() {}
@@ -25,7 +29,7 @@ public class NoteManager {
      * @param note
      */
     public void addNoteToEtudiant(int idEtudiant, int idRessource, int note) {
-
+        repository.create(new Note(EtudiantManager.getInstance().getEtudiant(idEtudiant), RessourceManager.getInstance().getRessource(idRessource), note));
     }
 
     /**
@@ -35,7 +39,9 @@ public class NoteManager {
      * @param note : nouvelle valeur pour la note
      */
     public void updateNote(int idNote, int note) {
-
+        Note n = NoteManager.getInstance().getNote(idNote);
+        n.setNote(note);
+        repository.update(n);
     }
 
     /**
@@ -43,7 +49,7 @@ public class NoteManager {
      * @param idNote : identifiant de la note à supprimer
      */
     public void deleteNote(int idNote) {
-
+        repository.deleteById(idNote);
     }
 
     /**
@@ -51,6 +57,6 @@ public class NoteManager {
      * @param idNote : identifiant de la note à récupérer
      */
     public Note getNote(int idNote) {
-        return null;
+        return repository.findByID(idNote);
     }
 }

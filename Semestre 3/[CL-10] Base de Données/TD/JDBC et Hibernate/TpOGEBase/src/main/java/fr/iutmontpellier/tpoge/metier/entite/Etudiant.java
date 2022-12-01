@@ -1,18 +1,35 @@
 package fr.iutmontpellier.tpoge.metier.entite;
 
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "EtudiantsOGE")
 public class Etudiant {
 
+    @Id
+    @GenericGenerator(name = "etudiantAuto", strategy = "increment")
+    @GeneratedValue(generator = "etudiantAuto")
     private int idEtudiant;
 
+    @Column
     private String nom;
 
+    @Column
     private String prenom;
 
+    @ManyToOne
+    @JoinColumn (name = "idRessource")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Ressource ressourceFavorite;
 
+    @OneToMany(mappedBy="idNote", fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     private List<Note> notes = new ArrayList<>();
 
     public Etudiant(String nom, String prenom, Ressource ressourceFavorite) {
