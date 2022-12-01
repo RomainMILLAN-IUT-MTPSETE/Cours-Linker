@@ -5,10 +5,10 @@
 <hibernate-configuration>
     <session-factory>
 
-        <property name="connection.url">jdbc:oracle:thin:@ip:port:nombase</property>
-        <property name="connection.username">username</property>
-        <property name="connection.password">password</property>
-        <property name="connection.driver_class">driver</property>
+        <property name="connection.url">jdbc:oracle:thin:@162.38.222.149:1521:iut</property>
+        <property name="connection.username">millanr</property>
+        <property name="connection.password">090816840JK</property>
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
 
         <property name="format_sql">true</property>
@@ -16,5 +16,9 @@
 
         <property name="connection.pool_size">5</property>
         <property name="current_session_context_class">thread</property>
+
+        <mapping class="fr.iutmontpellier.tpoge.metier.entite.Etudiant"></mapping>
+        <mapping class="fr.iutmontpellier.tpoge.metier.entite.Ressource"></mapping>
+        <mapping class="fr.iutmontpellier.tpoge.metier.entite.Note"></mapping>
     </session-factory>
 </hibernate-configuration>
