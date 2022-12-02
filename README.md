@@ -7,7 +7,7 @@ En effet vous pouvez avoir acces aux contenue pas les releases qui sortent lors 
 Pour voir les releases [cliquez-ici](https://bitbucket.org/wabezeter/cours-linker/downloads/)
 
 ### Par bitbucket
-Je ne sais pas si vous le savez mais vous pouvez directement télécharger tous les fichier dans un .zip grace à bitbucket ...
+Je ne sais pas si vous le savez mais vous pouvez directement télécharger tous les fichier dans un .zip grace à bitbucket [à ce lien](https://bitbucket.org/wabezeter/cours-linker/downloads/)
 
 <br/><br/><br/><br/><br/>
 > Cordialement, MILLAN Romain
