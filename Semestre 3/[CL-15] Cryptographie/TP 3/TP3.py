@@ -1,4 +1,5 @@
 import math
+from random import *
 # TP1BIS
 # EXERCICE 1
 # Question n°1/ f(143) => 11 * 13 f(6557) => 79 * 83
@@ -114,7 +115,7 @@ d2, u2, v2 = euclideEtendue((2 ** 500), (2 ** 1000 - 1))
 print('L\'inverse de 2^500 dans Z/2^1000-1Z est',u2,'=> d:',d2,'u:',u2,'v:',v2)
 
 
-print("\nTP2 | Exercice n°3")
+print("\n\n\nTP2 | Exercice n°3")
 #1)
 def ExponentielModulaire(a, b, n):
     d = 1
@@ -170,17 +171,17 @@ def D(c, kp):
     return ExponentielModulaire(c, kp[1], kp[0])
 
 print("Question n°1:")
-print(E(2, (253, 13)))
-print(D(22, (253, 17)))
-print(D(18, (253, 17)))
+print("Encryptage m=2, k=(253, 13): ", E(2, (253, 13)))
+print("Decryptage m=22 k=(253,17): ", D(22, (253, 17)))
+print("Decryptage m=18 k=(253,17): ", D(18, (253, 17)))
 print("Question n°2:")
 #1: La longueur max est
 #2:
-print(E(1111, (8633, 17)))
+print("Encryptage m=1111 k=(8633,17): ", E(1111, (8633, 17)))
 
-def kprv(k):
+def q2kprvwithfactdef(k):
     N=k[0]
-    fact = [89,97]
+    fact = g(N)
 
     e = k[1]
     d = 0
@@ -191,6 +192,46 @@ def kprv(k):
     
     return (N, d)
 
-print(kprv((8633, 17)))
-print(E(1111, (8633, 17)))
-print(D(E(1111, (8633, 17)), kprv((8633, 17))))
+
+print("Question n°2.A.III: ", E(1111, (8633, 17)))
+print("Question n°2.A.III: ", q2kprvwithfactdef((8633, 17)))
+print("Question n°3.A.IV: ", D(E(1111, (8633, 17)), q2kprvwithfactdef((8633, 17))))
+print("Question n°3: ", D(1234, (6557, 67)))
+
+print("TP3 | Exercice 2")
+#1°)
+def estPresquePremier(n):
+    if (estPremier(n)):
+        return 1
+    
+    for i in range(2, 25):
+        if(ExponentielModulaire((i ** (n-1)), 1, n) != 1):
+            return 0
+    
+    return 1
+
+print("Question n°1:")
+print(estPresquePremier(937))
+print(estPresquePremier(167))
+
+#2°)
+def genNbPresquePremierBeetwen2AndN(N):
+    p = randint(2, N)
+
+    pfind = False
+
+    while(pfind == False):
+        if(pfind == False):
+            p = randint(2, N)
+            if(estPresquePremier(p) == 1):
+                pfind = True
+
+    return p
+
+print("Question n°2", genNbPresquePremierBeetwen2AndN(2**12))
+
+#3°) Il faut en moyenne 10 entiers
+
+#4°) 
+
+
