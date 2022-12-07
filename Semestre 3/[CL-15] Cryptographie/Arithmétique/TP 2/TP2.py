@@ -63,6 +63,7 @@ print("\nTP1 | Exercice n°3:")
 print(g(48))
 print(g(900))
 print(g(2356))
+print(g(1))
 
 
 
