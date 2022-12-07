@@ -27,7 +27,7 @@ int main() {
 	}
 	
     bzero(&servaddr, sizeof(servaddr));
-    bzero(&servaddr, sizeof(servaddr));
+    bzero(&cliaddr, sizeof(cliaddr));
 		
 	// Filling server information
 	servaddr.sin_family = AF_INET; // IPv4
