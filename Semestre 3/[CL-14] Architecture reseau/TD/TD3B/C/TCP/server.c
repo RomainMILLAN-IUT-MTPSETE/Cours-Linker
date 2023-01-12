@@ -47,7 +47,7 @@ main() {
         printf("En attente d'un client\n");
         int clt = 0;
 
-        socket2 = accept(sock, (struct sockaddr *)&local, &lg);
+        socket2 = accept(sock, (struct sockaddr *)&distant, &lg);
         clt++;
         int i = fork();
         if(i == 0){
