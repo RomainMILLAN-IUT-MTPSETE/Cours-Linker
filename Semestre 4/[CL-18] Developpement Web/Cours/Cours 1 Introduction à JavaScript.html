@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)http://romainlebreton.github.io/R.4.01-DeveloppementWeb-JavaScript/classes/cours1.html -->
+<html data-slide="1" style="--arc-palette-foregroundTertiary:#1EAEEBFF; --arc-palette-background:#001D29F6; --arc-background-gradient-color1:#EB5B1EFF; --arc-palette-subtitle:#727D81F9; --arc-palette-focus:#3A7E9BCE; --arc-palette-foregroundPrimary:#DEF3FCFF; --arc-palette-minContrastColor:#0B5F83FF; --arc-palette-cutoutColor:#0B5F83FF; --arc-palette-backgroundExtra:#000F14F4; --arc-palette-foregroundSecondary:#1EAEEBFF; --arc-palette-hover:#478AA47A; --arc-palette-title:#D5E6EBF4; --arc-palette-maxContrastColor:#DEF3FCFF; --arc-background-gradient-color0:#1EAEEBFF;"><head lang="fr"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Cours 1  Introduction à JavaScript</title>
+
+    
+    <!-- <link rel="stylesheet" href="/R.4.01-DeveloppementWeb-JavaScript/css/highlight-default.css"> -->
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
+    <link rel="stylesheet" href="./Cours 1 Introduction à JavaScript_files/github.min.css">
+    <script src="./Cours 1 Introduction à JavaScript_files/highlight.min.js"></script>
+    
+
+    <link rel="stylesheet" href="./Cours 1 Introduction à JavaScript_files/main.css">
+    
+
+    
+    <link class="slideshow-css" rel="stylesheet" href="./Cours 1 Introduction à JavaScript_files/dz-slides.css">
+    <link class="slideshow-css" rel="stylesheet" href="./Cours 1 Introduction à JavaScript_files/dz-slides-customization.css">
+    <script>
+        // Hack for Firefox
+        var st = document.getElementsByClassName("slideshow-css");
+        Array.prototype.forEach.call(st, function (x) { x.disabled = true; });
+    </script>
+    
+
+    <link rel="icon" type="image/png" href="http://romainlebreton.github.io/R.4.01-DeveloppementWeb-JavaScript/assets/favicon.ico">
+
+    <link href="https://github.com/romainlebreton/R.4.01-DeveloppementWeb-JavaScript/commits/gh-pages.atom" rel="alternate" title="Recent Commits to R.4.01-DeveloppementWeb-JavaScript" type="application/atom+xml">
+
+    <script src="./Cours 1 Introduction à JavaScript_files/polyfills.js"></script>
+</head>
+
+<body class="loaded" style="transform: scale(2.21833);">
+    <ul class="menu dont-print" id="top-menu">
+        <li><a href="http://romainlebreton.github.io/R.4.01-DeveloppementWeb-JavaScript/">Home</a></li>
+        <li><a href="https://github.com/romainlebreton/R.4.01-DeveloppementWeb-JavaScript/blob/gh-pages/classes/cours1.md">Source</a></li>
+        <li><a href="https://github.com/romainlebreton/R.4.01-DeveloppementWeb-JavaScript/edit/gh-pages/classes/cours1.md">Quick edit</a></li>
+        <li><a href="javascript:window.print()">Print</a></li>
+        
+        <li><a href="javascript:Dz.play()">Start slideshow</a></li>
+        
+    </ul>
+
+    <div class="main">
+        <div class="container">
+            <div id="slides">
+
+  <section class="title-slide" aria-selected="true">
+    <div>
+      <h1>Cours 1 <br> Introduction à JavaScript <span class="subtitle">un tour d'horizon</span></h1>
+
+      <div id="slides-license" style="display: none">
+	<p></p>
+          <p><a href="https://github.com/romainlebreton">Romain Lebreton</a>, Malo Gasquet, Cyrille Nadal, Victor Poupet et Matthieu Rosenfeld
+	  2023,<br> Distribué avec une licence
+	  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA
+	    4.0</a><sup>*</sup>
+          <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+	    <img alt="Creative Commons Licence" style="border-width:0" src="./Cours 1 Introduction à JavaScript_files/88x31.png">
+	  </a></p>
+	
+	<p><small><sup>*</sup>Vous avez droit de reproduire, distribuer
+	    et modifier à condition d'inclure un lien vers cette source,
+	    et de partager sous les mêmes conditions.</small></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+
+  <!-- 
+TODO Notes :
+* Comparer les portées avec Java, C/C++, Python, PHP
+* Montrer le débuggage JS dans VsCode (cf. tldr node)
+* type hinting pour autocomplétion dans VSCode / WebStorm
+* convention de nommage
+* affichage dans la console / node (dernière valeur retournée vs affichage avec console.log())
+  console.log(x) affiche d'abord x avant d'afficher la dernière valeur retournée = undefined
+* p.__proto__.constructor.name, p.__proto__.__proto__.constructor.name 
+* présenter les 3 systèmes de module (natif, node, ?)
+
+ -->
+
+  <h1 id="gnralits-sur-javascript">Généralités sur JavaScript</h1>
+
+</section>
+<section>
+
+  <h2 id="bref-historique">Bref historique</h2>
+
+  <p><strong>Années 1990</strong> - Dynamic HTML – effets sur les pages web :
+<img alt="Brendan EICH" src="./Cours 1 Introduction à JavaScript_files/Brendan EICH.jpg" height="110" style="float:right; margin-left:10px;"></p>
+
+  <ul>
+    <li>
+      <p>Langage écrit en 1995 par Brendan EICH chez Netscape, pour associer des scripts à des éléments HTML.</p>
+    </li>
+    <li>
+      <p>Permet d’avoir des programmes en plus des pages Web dans le navigateur.<br>
+Ces programmes permettent d’agir directement avec la page Web, sans rechargement.</p>
+    </li>
+    <li>
+      <p>Standard&nbsp;96-97 (ECMAScript)<br>
+  actuellement&nbsp;version 13 (juin 2022),<br>
+  nouvelle version tous les ans</p>
+    </li>
+  </ul>
+
+</section>
+<section>
+
+  <h2 id="bref-historique-1"><strong>Bref historique</strong></h2>
+
+  <p><strong>Années 2000</strong> – Librairies évoluées :</p>
+
+  <ul>
+    <li>Jquery, MooTools, AngularJS, …&nbsp;: proposent un   ensemble de fonctions, ou
+  même un cadre de travail   complet pour JavaScript.</li>
+    <li>AJAX (utilisation «&nbsp;asynchrone&nbsp;» de JavaScript pour  gérer des appels au
+  serveur de données). Voir TD5 et suivants.</li>
+  </ul>
+
+  <p><strong>Années 2010</strong> – Ère moderne :</p>
+
+  <ul>
+    <li>Évolution de JavaScript&nbsp;: utilisation du langage  côté serveur (retour aux
+origines).</li>
+    <li>Tendance actuelle&nbsp;: un seul langage dans la pile web, par exemple
+remplacer PHP par JavaScript.</li>
+    <li>Node.js pour des serveurs web écrits en JavaScript.</li>
+  </ul>
+
+  <div role="note">
+    <p>Node.js ~ PHP terminal CLI<br>
+Console navigateur ~ PHP lié au serveur Web Apache</p>
+  </div>
+
+</section>
+<section>
+
+  <h2 id="environnement-de-travail">Environnement de travail</h2>
+
+  <p><strong>Environnement d’exécution</strong></p>
+
+  <ul>
+    <li>
+      <p>la console des <em>DevTools</em> du navigateur :<br>
+Endroit idéal pour tester le code, en interaction directe avec la page
+web. Outil indispensable. Les exemples du cours sont testés dans la
+console.</p>
+    </li>
+    <li>
+      <p><code class="language-plaintext highlighter-rouge">Node.js</code> :<br>
+Permet, entre autres, d’exécuter du JS dans un terminal.<br>
+⚠️ Non lié à une page Web</p>
+    </li>
+  </ul>
+
+  <p><strong>Environnement de développement</strong></p>
+
+  <p>Nous vous conseillons <code class="language-plaintext highlighter-rouge">WebStorm</code> ou <code class="language-plaintext highlighter-rouge">VSCode</code>.</p>
+
+  <!-- **Sites dédiés**
+
+Certains sites permettent l’élaboration et le test du code client :
+html, css et JavaScript. Par ex :
+
+-   <https://codepen.io/>
+-   <https://jsbin.com/> -->
+
+</section>
+<section>
+
+  <h2 id="caractristiques-gnrales">Caractéristiques générales</h2>
+
+  <ol>
+    <li>
+      <p>langage qui dynamise les pages web côté client</p>
+
+      <ul>
+        <li>Scripts interprétés dans le navigateur.<br>
+Page web dynamique côté client (voir TD1), souvent par une gestion
+  des événements (clics, …).</li>
+        <li>Différent des pages dynamiques côté serveur (PHP),<br>
+où on gère des informations envoyées (formulaires) ou en provenance de la
+base de données.</li>
+      </ul>
+    </li>
+    <li>
+      <p>langage interprété</p>
+
+      <p>JavaScript&nbsp;est interprété au niveau du navigateur, sans la moindre
+  compilation.</p>
+
+      <p>L’exécution des scripts dépend de l’activation, côté
+  client, de l’interpréteur JavaScript.</p>
+    </li>
+  </ol>
+
+</section>
+<section>
+
+  <h1 id="variables-en-javascript">Variables en JavaScript</h1>
+
+</section>
+<section>
+
+  <h2 id="les-types-principaux">Les types principaux</h2>
+
+  <ul>
+    <li>
+      <p>JavaScript propose 8 types différents, nous en utiliserons essentiellement
+4&nbsp;:</p>
+
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">Number</code> (les nombres flottants <code class="language-plaintext highlighter-rouge">double</code>)</li>
+        <li><code class="language-plaintext highlighter-rouge">String</code> (chaînes de caractères)<br>
+ Immuable (comme Java, Python, à l’inverse de C++, PHP)</li>
+        <li><code class="language-plaintext highlighter-rouge">Boolean</code> (les booléens)</li>
+        <li><code class="language-plaintext highlighter-rouge">Object</code> (tous les objets JavaScript)<br>
+ Dont les tableaux, stockés par référence (comme Java, …)</li>
+      </ul>
+    </li>
+    <li>
+      <p>Les 4 autres types (<code class="language-plaintext highlighter-rouge">BigInt</code>, <code class="language-plaintext highlighter-rouge">Null</code>, <code class="language-plaintext highlighter-rouge">Undefined</code> et <code class="language-plaintext highlighter-rouge">Symbol</code>) sont pour nous
+moins communs.</p>
+    </li>
+    <li>
+      <p>Le typage JavaScript est&nbsp;:</p>
+
+      <ul>
+        <li>Faible : Pas de type indiqué à la déclaration.</li>
+        <li>Dynamique&nbsp;: Le type d’une variable peut changer.</li>
+      </ul>
+    </li>
+  </ul>
+
+</section>
+<section>
+
+  <h2 id="dclaration-des-variables">Déclaration des variables</h2>
+
+  <ul>
+    <li>Les variables se déclarent par les mots-clés <code class="language-plaintext highlighter-rouge">var</code>, <code class="language-plaintext highlighter-rouge">let</code> ou <code class="language-plaintext highlighter-rouge">const</code>.</li>
+    <li>La tendance actuelle&nbsp;est l’utilisation du mot-clé <code class="language-plaintext highlighter-rouge">let</code>. Nous
+privilégierons ce mot-clé.</li>
+  </ul>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-csharp"><span class="hljs-keyword">let</span> bianca = <span class="hljs-string">"Bianca Castafiore"</span>;
+</code></pre></div>  </div>
+
+  <ul>
+    <li>Le mot-clé <code class="language-plaintext highlighter-rouge">const</code> fonctionne comme <code class="language-plaintext highlighter-rouge">let</code>, à ceci près que la valeur ne
+peut pas être réaffectée après initialisation.</li>
+  </ul>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-csharp"><span class="hljs-keyword">const</span> pi = <span class="hljs-number">3.141592653589793</span>;
+pi = <span class="hljs-number">3</span>;
+<span class="hljs-comment">// → TypeError: Assignment to constant variable.</span>
+</code></pre></div>  </div>
+
+  <div role="note">
+    <p>Montrer la console de développement</p>
+  </div>
+
+</section>
+<section>
+
+  <h2 id="porte-des-variables">Portée des variables</h2>
+
+  <p><strong>Variables locales</strong></p>
+
+  <p>Une variable déclarée avec <code class="language-plaintext highlighter-rouge">let</code> a pour portée le bloc contenant (fonction, boucle <code class="language-plaintext highlighter-rouge">for</code>, …).</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-scss"><span class="hljs-built_in">for</span>(let i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">2</span>; i++) {
+    console<span class="hljs-selector-class">.log</span>(i)
+}
+<span class="hljs-comment">// → 0</span>
+<span class="hljs-comment">// → 1</span>
+console<span class="hljs-selector-class">.log</span>(i)
+<span class="hljs-comment">// → Uncaught ReferenceError: i is not defined</span>
+</code></pre></div>  </div>
+
+  <p><strong>Remarque :</strong></p>
+  <ul>
+    <li>JS permet des fois d’omettre le <code class="language-plaintext highlighter-rouge">;</code> à la fin de l’instruction.</li>
+    <li>Bonne pratique : Toujours mettre <code class="language-plaintext highlighter-rouge">;</code> à la fin.</li>
+  </ul>
+
+  <div role="note">
+    <p>Montrer node.js</p>
+  </div>
+
+</section>
+<section>
+
+  <h2 id="porte-des-variables-1">Portée des variables</h2>
+
+  <p><strong>Variables locales</strong></p>
+
+  <p>Une variable déclarée avec <code class="language-plaintext highlighter-rouge">let</code> a pour portée le bloc contenant
+(fonction, boucle <code class="language-plaintext highlighter-rouge">for</code>, …).</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-scss">let <span class="hljs-selector-tag">i</span>;
+<span class="hljs-built_in">for</span>(i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">2</span>; i++) {
+    console<span class="hljs-selector-class">.log</span>(i);
+}
+<span class="hljs-comment">// → 0</span>
+<span class="hljs-comment">// → 1</span>
+console<span class="hljs-selector-class">.log</span>(i)
+<span class="hljs-comment">// → 2</span>
+</code></pre></div>  </div>
+
+</section>
+<section>
+
+  <h2 id="porte-des-variables-2">Portée des variables</h2>
+
+  <p><strong>Variables locales</strong></p>
+
+  <p>Une variable déclarée avec <code class="language-plaintext highlighter-rouge">let</code> a pour portée le bloc contenant
+(fonction, boucle <code class="language-plaintext highlighter-rouge">for</code>, …).</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">let</span> j = <span class="hljs-number">2</span>;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(j);
+}
+<span class="hljs-title function_">f</span>();
+<span class="hljs-comment">// → 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(j);
+<span class="hljs-comment">// → Uncaught ReferenceError: j is not defined</span>
+</code></pre></div>  </div>
+
+</section>
+<section>
+
+  <h2 id="porte-des-variables-3">Portée des variables</h2>
+
+  <p><strong>Variables globales</strong></p>
+
+  <p>Une variable déclarée dans la partie principale du script a donc
+pour portée tout le script&nbsp;: c’est une variable globale</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-javascript"><span class="hljs-keyword">let</span> i_global = <span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">nb</span>) {
+    i_global = nb;
+}
+
+<span class="hljs-title function_">f</span>(<span class="hljs-number">8</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(i_global);
+<span class="hljs-comment">// → 8</span>
+</code></pre></div>  </div>
+
+</section>
+
+<!-- 
+<section>
+
+## Opérateurs classiques
+
+**Opérateurs arithmétiques (entre variables de type `Number`)**
+
+On peut aussi utiliser les opérateurs classiques `+=`, `-=`, `*=`, `/=`, `%=`
+et `**=`
+
+
+| **Opérateur** | **Opération**  |
+| ------------- | -------------- |
+| `+`           | addition       |
+| `–`           | soustraction   |
+| `*`           | multiplication |
+| `/`           | division       |
+| `%`           | modulo         |
+| `**`          | puissance      |
+{: .centered}
+
+</section> 
+-->
+<section>
+
+  <h2 id="oprateurs-logiques">Opérateurs logiques</h2>
+
+  <p>Entre variables de type <code class="language-plaintext highlighter-rouge">Boolean</code></p>
+
+  <ul>
+    <li>
+      <p><code class="language-plaintext highlighter-rouge">==</code> / <code class="language-plaintext highlighter-rouge">!=</code> : égalité en valeur  ⚠️ Danger ! ⚠️<br>
+  Relation est symétrique, mais pas transitive en JS (ni en PHP)</p>
+
+      <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript">  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>([] == <span class="hljs-literal">false</span>); <span class="hljs-comment">// → true</span>
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-literal">false</span> == <span class="hljs-string">"0"</span>); <span class="hljs-comment">// → true</span>
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"0"</span> == []); <span class="hljs-comment">// → false</span>
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p><code class="language-plaintext highlighter-rouge">===</code> / <code class="language-plaintext highlighter-rouge">!==</code> : égalité en valeur et en type<br>
+À privilégier.</p>
+      <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript">  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>([] === <span class="hljs-literal">false</span>); 
+  <span class="hljs-comment">// → false car types différents</span>
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-literal">false</span> === <span class="hljs-string">"0"</span>); <span class="hljs-comment">// → false</span>
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"0"</span> === []); <span class="hljs-comment">// → false</span>
+</code></pre></div>      </div>
+    </li>
+  </ul>
+
+  <!-- | **Opérateur** | **Opération**                   |
+| ------------- | ------------------------------- |
+| `&&`          | "ET" logique                    |
+| `||`          | "OU" logique                    |
+| `!`           | "NON" logique                   |
+| `==`          | égalité en valeur               |
+| `!=`          | différence en valeur            |
+| `===`         | égalité en valeur et en type    |
+| `!==`         | différence en valeur ou en type |
+{: .centered  .pretty} -->
+
+</section>
+<section>
+
+  <h2 id="javascript-est-trs-permissif-">JavaScript est très permissif !</h2>
+
+  <p>Conversions automatiques de type</p>
+
+  <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span> (<span class="hljs-number">8</span> * <span class="hljs-literal">null</span>);
+<span class="hljs-comment">// → 0</span>
+</code></pre></div>  </div>
+
+  <div class="incremental">
+    <div>
+
+      <p>En effet, <code class="language-plaintext highlighter-rouge">*</code> est nécessairement la multiplication de deux nombres donc <code class="language-plaintext highlighter-rouge">null</code> est converti en un nombre</p>
+
+    </div>
+    <div>
+
+      <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-title class_">Number</span>(<span class="hljs-literal">null</span>);
+<span class="hljs-comment">// → 0</span>
+<span class="hljs-comment">// ATTENTION : çà ne marche que dans les cas simples</span>
+<span class="hljs-title class_">Number</span>(<span class="hljs-string">"five"</span>);
+<span class="hljs-comment">// → NaN</span>
+<span class="hljs-title class_">Number</span>(<span class="hljs-string">"5"</span>);
+<span class="hljs-comment">// → 5</span>
+<span class="hljs-title class_">Number</span>(<span class="hljs-literal">undefined</span>);
+<span class="hljs-comment">// → NaN</span>
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+</section>
+<section>
+
+  <h2 id="quizz-12">Quizz 1/2</h2>
+
+  <p><strong>Question :</strong> Que rend le code suivant ?</p>
+
+  <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span> (<span class="hljs-string">"5"</span> - <span class="hljs-number">1</span>);
+</code></pre></div>  </div>
+
+  <div class="incremental">
+    <p><strong>Réponse :</strong> <code class="language-plaintext highlighter-rouge">4</code>, car <code class="language-plaintext highlighter-rouge">-</code> est nécessairement la soustraction de deux nombres donc <code class="language-plaintext highlighter-rouge">"5"</code> est converti en un nombre</p>
+  </div>
+</section>
+<section>
+
+  <h2 id="quizz-22">Quizz 2/2</h2>
+
+  <p><strong>Question :</strong> Que rend le code suivant ?</p>
+
+  <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span> (<span class="hljs-string">"5"</span> + <span class="hljs-number">1</span>);
+</code></pre></div>  </div>
+
+  <div class="incremental">
+    <p><strong>Réponse :</strong> <code class="language-plaintext highlighter-rouge">"51"</code> ! <br>
+Il y a ambiguïté entre addition de nombres et concaténation de chaînes de caractères. L’opérateur le plus prioritaire en JavaScript est la concaténation.</p>
+  </div>
+</section>
+<section>
+
+  <h2 id="valuation-paresseuse-de--et-">Évaluation paresseuse de <code class="language-plaintext highlighter-rouge">||</code> et <code class="language-plaintext highlighter-rouge">&amp;&amp;</code></h2>
+
+  <p>Si <code class="language-plaintext highlighter-rouge">expr1</code> est vrai, alors</p>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">(expr1 || expr2)</code> est vrai</li>
+    <li>et <code class="language-plaintext highlighter-rouge">expr2</code> n’est pas évalué</li>
+  </ul>
+
+  <p>Si <code class="language-plaintext highlighter-rouge">expr1</code> est faux, alors</p>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">(expr1 &amp;&amp; expr2)</code> est faux</li>
+    <li>et <code class="language-plaintext highlighter-rouge">expr2</code> n’est pas évalué</li>
+  </ul>
+
+  <p><strong>Intérêt :</strong></p>
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-csharp"><span class="hljs-keyword">if</span> (p !== <span class="hljs-literal">null</span> &amp;&amp; p.nom == <span class="hljs-string">'Eich'</span>)
+<span class="hljs-comment">// Si p est null, alors p.nom n'est pas évalué</span>
+<span class="hljs-comment">// (donc pas de TypeError) </span>
+</code></pre></div>  </div>
+
+  <p>(comme en PHP, Java, C++, … voir aussi le <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Optional_chaining">chainage optionnel <code class="language-plaintext highlighter-rouge">?.</code></a> )</p>
+
+  <div role="note">
+    <p>Considérez l’expression <code class="language-plaintext highlighter-rouge">(expr1 || expr2)</code> …</p>
+  </div>
+
+</section>
+<section>
+
+  <h2 id="mthodes-du-type-number">Méthodes du type <code class="language-plaintext highlighter-rouge">Number</code></h2>
+
+  <div style="font-size:large">
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-csharp"><span class="hljs-keyword">let</span> x = <span class="hljs-number">3.141592653589793</span>;
+<span class="hljs-keyword">typeof</span>(x); <span class="hljs-comment">// → 'number'</span>
+x.__proto__;
+</code></pre></div>    </div>
+  </div>
+  <p>donne ceci dans la console des outils de développement</p>
+
+  <p class="centered"><img src="./Cours 1 Introduction à JavaScript_files/proto.png" alt="Prototype methods"></p>
+
+  <p>On sait alors que l’on peut appeler</p>
+  <div style="font-size:large">
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-ruby">x.toPrecision(<span class="hljs-number">4</span>); <span class="hljs-regexp">//</span> → <span class="hljs-string">'3.142'</span>
+x.toFixed(<span class="hljs-number">4</span>); <span class="hljs-regexp">//</span> → <span class="hljs-string">'3.1416'</span>
+</code></pre></div>    </div>
+  </div>
+
+</section>
+<section>
+
+  <h2 id="type-string">Type <code class="language-plaintext highlighter-rouge">String</code></h2>
+
+  <p>Syntaxe entre guillemets simples <code class="language-plaintext highlighter-rouge">'coucou'</code> ou <code class="language-plaintext highlighter-rouge">"coucou"</code> doubles :</p>
+  <ul>
+    <li>même comportement, sauf échappement du délimiteur :
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">\'</code> → <code class="language-plaintext highlighter-rouge">'</code> si délimiteur simple</li>
+        <li><code class="language-plaintext highlighter-rouge">\"</code> → <code class="language-plaintext highlighter-rouge">"</code> si délimiteur double</li>
+      </ul>
+    </li>
+    <li>saut de ligne avec <code class="language-plaintext highlighter-rouge">\n</code>, …</li>
+  </ul>
+
+  <div class="incremental">
+    <div>
+      <p>Syntaxe entre accent grave <code class="language-plaintext highlighter-rouge">`coucou`</code>. Permet le remplacement de variables avec <code class="language-plaintext highlighter-rouge">$ {...}</code> :</p>
+
+      <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-keyword">let</span> nom = <span class="hljs-string">'Juste Leblanc'</span>;
+<span class="hljs-keyword">let</span> p = <span class="hljs-string">`&lt;p&gt; Bonjour <span class="hljs-subst">${nom}</span> &lt;/p&gt;`</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p);
+<span class="hljs-comment">// &lt;p&gt; Bonjour Juste Leblanc &lt;/p&gt;</span>
+</code></pre></div>      </div>
+    </div>
+  </div>
+</section>
+<section>
+
+  <h2 id="mthodes-du-type-string">Méthodes du type <code class="language-plaintext highlighter-rouge">String</code></h2>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-ruby">let password = <span class="hljs-string">"@P9GXpXuF%sy"</span>;
+password.length; <span class="hljs-regexp">//</span> → <span class="hljs-number">12</span>
+password.toUpperCase(); <span class="hljs-regexp">//</span> → <span class="hljs-variable">@P9GXPXUF</span>%<span class="hljs-variable constant_">SY</span>
+password.charAt(<span class="hljs-number">6</span>); <span class="hljs-regexp">//</span> → <span class="hljs-string">'X'</span>
+password.indexOf(<span class="hljs-string">"%"</span>); <span class="hljs-regexp">//</span> → <span class="hljs-number">9</span>
+password.split(<span class="hljs-string">"X"</span>); <span class="hljs-regexp">//</span> → [ <span class="hljs-string">'@P9G'</span>, <span class="hljs-string">'p'</span>, <span class="hljs-string">'uF%sy'</span> ]
+</code></pre></div>  </div>
+
+  <p>(voir le <code class="language-plaintext highlighter-rouge">__proto__</code> en détail !)</p>
+
+</section>
+<section>
+
+  <h1 id="tableaux-en-javascript">Tableaux en JavaScript</h1>
+
+</section>
+<section>
+
+  <h2 id="dclarations-possibles-dun-tableau">Déclarations possibles d’un tableau</h2>
+
+  <p>Les tableaux JavaScript peuvent être déclarés par un appel à un
+constructeur de l’objet natif de JavaScript Array&nbsp;:</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-keyword">let</span> tab = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(<span class="hljs-string">"bonjour"</span>,<span class="hljs-string">"salut"</span>,<span class="hljs-string">"hello"</span>);
+</code></pre></div>  </div>
+
+  <p>Mais il est plus simple de les déclarer par&nbsp;:</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-csharp"><span class="hljs-keyword">let</span> tab = [<span class="hljs-string">"bonjour"</span>,<span class="hljs-string">"salut"</span>,<span class="hljs-string">"hello"</span>];
+</code></pre></div>  </div>
+
+</section>
+<section>
+
+  <h2 id="parcours-dun-tableau">Parcours d’un tableau</h2>
+
+  <p>Boucle <code class="language-plaintext highlighter-rouge">for</code> classique :</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-keyword">let</span> tab=[<span class="hljs-string">"bonjour"</span>, <span class="hljs-string">"hello"</span>, <span class="hljs-string">"salut"</span>, <span class="hljs-string">"coucou"</span>];
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i &lt; tab.<span class="hljs-property">length</span>; i++) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`mot n°<span class="hljs-subst">${i}</span> : <span class="hljs-subst">${tab[i]}</span>`</span>);
+}
+<span class="hljs-comment">// mot n°0 : bonjour</span>
+<span class="hljs-comment">// mot n°1 : hello</span>
+<span class="hljs-comment">// mot n°2 : salut</span>
+<span class="hljs-comment">// mot n°3 : coucou</span>
+</code></pre></div>  </div>
+
+  <p><br></p>
+
+  <p><strong>Question :</strong> Comment JS évalue <code class="language-plaintext highlighter-rouge">tab[i]</code> alors que <code class="language-plaintext highlighter-rouge">i</code> est un flottant ?</p>
+
+  <p class="incremental">Réponse : Il tronque <code class="language-plaintext highlighter-rouge">i</code> pour garder sa partie entière.</p>
+
+</section>
+<section>
+
+  <h2 id="parcours-dun-tableau-1">Parcours d’un tableau</h2>
+
+  <p>Boucle <code class="language-plaintext highlighter-rouge">for...of</code> :</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-keyword">let</span> tab=[<span class="hljs-string">"bonjour"</span>, <span class="hljs-string">"hello"</span>, <span class="hljs-string">"salut"</span>, <span class="hljs-string">"coucou"</span>];
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> mot <span class="hljs-keyword">of</span> tab) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(mot);
+}
+<span class="hljs-comment">// bonjour</span>
+<span class="hljs-comment">// hello</span>
+<span class="hljs-comment">// salut</span>
+<span class="hljs-comment">// coucou</span>
+</code></pre></div>  </div>
+
+</section>
+<section>
+
+  <h2 id="mthodes-des-tableaux">Méthodes des tableaux</h2>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-comment">// Insertion</span>
+<span class="hljs-keyword">let</span> tab = [<span class="hljs-number">1</span>];
+tab.<span class="hljs-title function_">push</span>(<span class="hljs-number">2</span>); <span class="hljs-comment">// En fin de tableau</span>
+tab.<span class="hljs-title function_">unshift</span>(<span class="hljs-number">3</span>); <span class="hljs-comment">// En début de tableau</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(tab); <span class="hljs-comment">// → [3, 1, 2]</span>
+
+<span class="hljs-comment">// Supression</span>
+<span class="hljs-keyword">let</span> fin = tab.<span class="hljs-title function_">pop</span>(); <span class="hljs-comment">// En fin de tableau</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(tab); <span class="hljs-comment">// → [3, 1]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(fin); <span class="hljs-comment">// → 2</span>
+<span class="hljs-keyword">let</span> debut = tab.<span class="hljs-title function_">shift</span>() <span class="hljs-comment">// En début de tableau</span>
+
+<span class="hljs-comment">// Concaténation</span>
+<span class="hljs-keyword">let</span> tabconcat = tab.<span class="hljs-title function_">concat</span>([<span class="hljs-number">6</span>,<span class="hljs-number">7</span>]);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(tabconcat); <span class="hljs-comment">// → [ 3, 1, 6, 7 ]</span>
+</code></pre></div>  </div>
+
+  <!-- 
+**Extractions**
+
+  - en fin de tableau : `tab.slice(i)`  
+    retourne le sous-tableau des indices k, k ≥ i
+  - en milieu de tableau : `tab.slice(i,j)`  
+    retourne le sous-tableau des indices k, i ≤ k \< j
+    
+**Concaténation**
+
+- `tab.join("/")`  
+retourne la chaîne de caractères obtenue par concaténation des
+éléments de tab, séparés par le caractère passé en argument.
+   
+**Longueur**
+
+- Longueur du tableau : `tab.length` -->
+
+  <p>Regarder le <code class="language-plaintext highlighter-rouge">__proto__</code> pour d’autres méthodes intéressantes…</p>
+
+  <!-- 
+Object.getOwnPropertyNames([].__proto__) 
+
+```js
+['length', 'constructor', 'at', 'concat', 'copyWithin', 'fill', 'find', 'findIndex', 'lastIndexOf', 'pop', 'push', 'reverse', 'shift', 'unshift', 'slice', 'sort', 'splice', 'includes', 'indexOf', 'join', 'keys', 'entries', 'values', 'forEach', 'filter', 'flat', 'flatMap', 'map', 'every', 'some', 'reduce', 'reduceRight', 'toLocaleString', 'toString', 'findLast', 'findLastIndex']
+``` -->
+
+</section>
+<section>
+
+  <h1 id="fonctions">Fonctions</h1>
+
+</section>
+<section>
+
+  <h2 id="syntaxe">Syntaxe</h2>
+
+  <p>Déclaration comme en Java, C++, …</p>
+
+  <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">square</span>(<span class="hljs-params">x</span>) </span>{
+    <span class="hljs-keyword">return</span> x * x;
+};
+</code></pre></div>  </div>
+
+  <p><br>
+Les variables <strong>peuvent stocker</strong> des fonctions ! <br>
+Le code ci-dessus est équivalent à</p>
+
+  <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-javascript"><span class="hljs-keyword">let</span> square = <span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) {
+    <span class="hljs-keyword">return</span> x * x;
+};
+</code></pre></div>  </div>
+
+</section>
+<section>
+
+  <h2 id="fonctions-anonymes">Fonctions anonymes</h2>
+
+  <p>On appelle <em>fonction anonyme</em> une déclaration de fonction sans nom.</p>
+
+  <p>Exemple :</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-javascript"><span class="hljs-built_in">setTimeout</span>(
+    <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) { <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Boum"</span>); },
+    <span class="hljs-number">2000</span>
+);
+</code></pre></div>  </div>
+
+  <div class="incremental">
+    <div>
+      <p>Syntaxe raccourcie : <em>Fonctions fléchées</em> (<em>arrow function</em> en anglais)</p>
+
+      <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-built_in">setTimeout</span>( <span class="hljs-function">() =&gt;</span> {<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Boum</span>);}, <span class="hljs-number">2000</span>);
+</code></pre></div>      </div>
+    </div>
+
+    <div>
+      <p>Les 2 syntaxes suivantes sont équivalentes</p>
+
+      <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">square1</span> = (<span class="hljs-params">x</span>) =&gt; { <span class="hljs-keyword">return</span> x * x; };
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">square2</span> = x =&gt; x * x;
+</code></pre></div>      </div>
+    </div>
+  </div>
+
+</section>
+<section>
+
+  <h2 id="fonctions-1">Fonctions</h2>
+
+  <p>Les fonctions sont des <strong>objets de «première classe»</strong> : elles
+peuvent être manipulées et échangées comme tous les autres objets JavaScript.</p>
+
+  <p><br>
+<strong>Exemple :</strong> Mettons une valeur <em>fonction</em> dans une variable</p>
+
+  <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">square</span>(<span class="hljs-params">x</span>) {
+    <span class="hljs-keyword">return</span> x * x;
+};
+<span class="hljs-comment">// Affectation de la variable</span>
+<span class="hljs-keyword">let</span> varfonc = square;
+<span class="hljs-comment">// Exécution de la fonction avec l'opérateur ()</span>
+<span class="hljs-title function_">varfonc</span>(<span class="hljs-number">2</span>);
+<span class="hljs-comment">// → 4</span>
+</code></pre></div>  </div>
+
+</section>
+<section>
+
+  <h2 id="fonctions-2">Fonctions</h2>
+
+  <p>Une fonction peut prendre en argument une fonction</p>
+
+  <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">boum</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Boum!'</span>);
+}
+<span class="hljs-comment">// setTimeout execute la fonction boum après 2s</span>
+<span class="hljs-built_in">setTimeout</span>(boum, <span class="hljs-number">2000</span>);
+</code></pre></div>  </div>
+
+  <p><br></p>
+
+  <p>Une fonction peut aussi renvoyer une fonction.</p>
+
+</section>
+
+<!-- 
+<section>
+
+## Fonctions
+
+**here** : Attention, on ne parle pas de nested scope, ni de closure**
+
+Une fonction peut renvoyer une fonction
+
+```javascript
+function puissance (x) {
+  function puissancex (y) {
+    // Math.pow(y,x) calcule y^x
+    return Math.pow(y,x);
+  }
+  return puissancex;
+}
+let square = puissance(2);
+let cube = puissance(3);
+console.log(square(256),cube(256));
+```
+
+<div class="incremental">
+**Note :** Nous reviendrons plus tard sur le fait que `puissancex(y)` utilise bien
+  la variable `x` de sa fonction parente.
+</div>
+
+</section> 
+-->
+
+<section>
+
+  <h1 id="objets-en-javascript">Objets en JavaScript</h1>
+
+</section>
+<section>
+
+  <h2 id="cration-de-faon-littrale">Création de façon littérale</h2>
+
+  <p>On peut définir un objet en donnant des paires clés-valeurs&nbsp;:</p>
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-keyword">let</span> p = {<span class="hljs-attr">nom</span>: <span class="hljs-string">"Haddock"</span>, <span class="hljs-attr">prenom</span>: <span class="hljs-string">"Archibald"</span>};
+p.<span class="hljs-property">nom</span>; <span class="hljs-comment">// → "Haddock</span>
+
+<span class="hljs-comment">// p peut être complété</span>
+p.<span class="hljs-property">profession</span> = <span class="hljs-string">"marin"</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p);
+<span class="hljs-comment">// → { nom: 'Haddock', prenom: 'Archibald', profession: 'marin' }</span>
+</code></pre></div>  </div>
+
+  <div class="incremental">
+    <div>
+      <p><strong>Note :</strong> PHP permettait aussi d’ajouter des attributs :</p>
+      <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-php"><span class="hljs-variable">$p</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">stdClass</span>();
+<span class="hljs-variable">$p</span>-&gt;nom = <span class="hljs-string">"Haddock"</span>;
+<span class="hljs-variable">$p</span>-&gt;prenom = <span class="hljs-string">"Archibald"</span>;
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+
+  <!-- 
+En JS, le prototype est Object
+En PHP, crée un objet de la stdClass
+Autres syntaxes PHP : 
+$o = (object) ["tata" => "blop"];
+$o2 = json_decode('{"foo":"bar"}');
+
+https://www.php.net/manual/en/class.stdclass.php
+
+Marche aussi avec les méthodes
+php > $p = new stdClass();
+php > $p->parler = function () { echo "bla";};
+php > ($p->parler)();
+
+ -->
+
+</section>
+<section>
+
+  <h2 id="cration-de-faon-littrale-1">Création de façon littérale</h2>
+
+  <p>On peut aussi créer l’objet avec des méthodes ou encore les ajouter
+après coup&nbsp;:</p>
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-javascript">p.<span class="hljs-property">parler</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"mille sabords !"</span>);
+}
+p.<span class="hljs-title function_">parler</span>(); <span class="hljs-comment">// → "mille sabords !"</span>
+</code></pre></div>  </div>
+
+</section>
+
+<!-- 
+<section>
+
+## Création par constructeur
+
+Cette méthode rappelle ce qu’on utilise en Java, mais la déclaration
+préalable des attributs n’a pas de sens puisqu’on peut en ajouter à
+tout moment…
+
+<div style="font-size:large">
+
+```js
+// Constructeur = une fonction qui peut appeler `this`
+function Personne(nom, prenom, profession) {
+    this.nom = nom;
+    this.prenom = prenom;
+    this.profession = profession;
+    this.parler = function () {
+        console.log("mille sabords !");
+    }
+}
+// Appel au constructeur avec `new ...`
+let capitaine = new Personne("Haddock", "Archibald", "marin");
+capitaine.nom; // → "Haddock"
+capitaine.parler(); // → "mille sabords !"
+```
+</div>  
+</section> 
+-->
+
+<section>
+
+  <h2 id="cration-selon-un-modle">Création selon un modèle</h2>
+
+  <p>Façon plus classique de coder&nbsp;:</p>
+
+  <div style="font-size:large">
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Personne</span> {
+    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">nom, prenom, profession</span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">nom</span> = nom;
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">prenom</span> = prenom;
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">profession</span> = profession;
+    }
+
+    <span class="hljs-title function_">parler</span>(<span class="hljs-params"></span>) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"mille sabords !"</span>);
+    }
+    
+    <span class="hljs-keyword">static</span> espece = <span class="hljs-string">"humain"</span>;
+}
+<span class="hljs-keyword">let</span> capitaine = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Personne</span>(<span class="hljs-string">"Haddock"</span>, <span class="hljs-string">"Archibald"</span>, <span class="hljs-string">"marin"</span>);
+capitaine.<span class="hljs-property">nom</span>; <span class="hljs-comment">// → "Haddock"</span>
+capitaine.<span class="hljs-title function_">parler</span>(); <span class="hljs-comment">// → "mille sabords !"</span>
+<span class="hljs-title class_">Personne</span>.<span class="hljs-property">espece</span>; <span class="hljs-comment">// → "humain"</span>
+</code></pre></div>    </div>
+
+  </div>
+
+</section>
+<section>
+
+  <h2 id="langage-bas-sur-les-prototypes">Langage basé sur les prototypes</h2>
+
+  <ul>
+    <li>JavaScript n’est pas basé sur les classes, mais sur les prototypes</li>
+    <li>Un prototype est comme une <em>maquette de classe</em> <strong>dynamique</strong><br>
+On peut modifier le prototype après coup :
+      <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-javascript"><span class="hljs-title class_">Personne</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">aurevoir</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Bon vent !"</span>);
+}
+</code></pre></div>      </div>
+    </li>
+    <li><code class="language-plaintext highlighter-rouge">capitaine</code> hérite <strong>dynamiquement</strong> des méthodes du
+prototype de <code class="language-plaintext highlighter-rouge">Personne</code>…
+      <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-ruby">capitaine.aurevoir();
+<span class="hljs-regexp">//</span> → <span class="hljs-string">"Bon vent !"</span>
+</code></pre></div>      </div>
+    </li>
+  </ul>
+
+</section>
+<section>
+
+  <h2 id="fonctionnement-des-prototypes">Fonctionnement des prototypes</h2>
+
+  <p>Chaque objet se voit rattaché un prototype, qui est un objet.</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-csharp"><span class="hljs-keyword">typeof</span> capitaine.__proto__ <span class="hljs-comment">// → object</span>
+</code></pre></div>  </div>
+
+  <div class="incremental">
+    <div>
+
+      <p>Donc le prototype a aussi son prototype, ce qui crée 
+une chaîne de prototypes.</p>
+
+    </div>
+    <div>
+
+      <p>À la fin, on arrive au prototype <code class="language-plaintext highlighter-rouge">Object</code> dont
+le prototype est <code class="language-plaintext highlighter-rouge">null</code>.</p>
+
+      <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-markdown">capitaine.<span class="hljs-strong">__proto__</span>.<span class="hljs-strong">__proto__</span>.<span class="hljs-strong">__proto__</span> // → null
+</code></pre></div>      </div>
+
+    </div>
+    <div>
+      <p>Deux instances de la même classe ont le même prototype</p>
+
+      <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-csharp"><span class="hljs-keyword">let</span> capitaine = <span class="hljs-keyword">new</span> Personne(<span class="hljs-string">"Haddock"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>);
+<span class="hljs-keyword">let</span> tournesol = <span class="hljs-keyword">new</span> Personne(<span class="hljs-string">"Triffon"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>);
+capitaine.__proto__ === tournesol.__proto__;
+<span class="hljs-comment">// → true</span>
+</code></pre></div>      </div>
+
+    </div>
+  </div>
+  <div role="note">
+    <p>Chaine prototypale ~ héritage (liste des classes mères)</p>
+  </div>
+</section>
+<section>
+
+  <h2 id="fonctionnement-des-prototypes-1">Fonctionnement des prototypes</h2>
+
+  <p>Chaque prototype contient les méthodes de son type</p>
+
+  <div style="font-size:large">
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-css"><span class="hljs-selector-tag">Object</span><span class="hljs-selector-class">.getOwnPropertyNames</span>(capitaine)
+// → <span class="hljs-selector-attr">[<span class="hljs-string">'nom'</span>, <span class="hljs-string">'prenom'</span>, <span class="hljs-string">'profession'</span>]</span>
+<span class="hljs-selector-tag">Object</span><span class="hljs-selector-class">.getOwnPropertyNames</span>(capitaine.__proto__)
+// → <span class="hljs-selector-attr">[<span class="hljs-string">'constructor'</span>, <span class="hljs-string">'parler'</span>]</span>
+<span class="hljs-selector-tag">Object</span><span class="hljs-selector-class">.getOwnPropertyNames</span>(capitaine.__proto__.__proto__)
+// → <span class="hljs-selector-attr">[<span class="hljs-string">'constructor'</span>, <span class="hljs-string">'hasOwnProperty'</span>, <span class="hljs-string">'toString'</span>, ...]</span>
+</code></pre></div>    </div>
+
+  </div>
+
+  <div class="incremental">
+    <div>
+
+      <p>Quand on tape <code class="language-plaintext highlighter-rouge">capitaine.parler()</code>, l’objet va chercher la méthode dans son prototype, sinon dans le prototype du prototype…</p>
+
+    </div>
+    <div>
+      <p>Du coup, <code class="language-plaintext highlighter-rouge">capitaine</code> hérite <strong>dynamiquement</strong> des méthodes du
+prototype de <code class="language-plaintext highlighter-rouge">Personne</code>.</p>
+
+      <div style="font-size:large">
+        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-javascript">capitaine.<span class="hljs-property">__proto__</span>.<span class="hljs-property">aurevoir</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Bon vent !"</span>);
+}
+capitaine.<span class="hljs-title function_">aurevoir</span>(); <span class="hljs-comment">// → "Bon vent !"</span>
+</code></pre></div>        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 
+C'est un peu similaire à une suite d'héritages.
+
+Le prototype est un objet qui contient toutes les méthodes en commun.
+C'est une sorte de maquette de classe.
+
+Mais c'est une maquette **dynamique** !
+
+On peut la changer.
+
+Donc tous les objets ont une méthode toString(), car elle appartient au prototype de `Object\.
+
+Le proto est un objet rattaché à chaque objet
+(jusqu'au proto de Object dont le prototype est `null`)
+
+Pour chercher un attribut / une méthode, on teste si l'objet l'a, 
+sinon le proto, sinon le proto du proto, ....
+
+Du coup, extensible après coup en modifiant le proto. 
+-->
+
+</section>
+
+<!-- 
+<section>
+
+## Particularité en JavaScript
+
+-   Les objets JavaScript ont la particularité de ne pas dépendre d’une
+    définition de classe comme en Java.
+-   Les versions récentes de JavaScript adoptent néanmoins la maquette de
+    *classe* mais les objets JavaScript gardent une vraie nature indépendante.
+-   Ils n’instancient pas de façon pure et dure une maquette de classe, mais
+    sont insérés dans une chaîne de prototypage, qui permet de savoir quel est
+    leur héritage et la généalogie de cet héritage.
+-   Il faut retenir qu’un objet JavaScript n’est pas contraint par un modèle de
+    classe, mais nos habitudes de programmation objet de Java nous permettront
+    de reproduire certaines pratiques classiques...
+
+</section> 
+-->
+<section>
+
+  <h2 id="parcours-des-attributs--mthodes">Parcours des attributs / méthodes</h2>
+
+  <p>On peut parcourir l’objet par une boucle <code class="language-plaintext highlighter-rouge">for...in</code>&nbsp;:</p>
+  <div style="font-size:large">
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-typescript"><span class="hljs-keyword">let</span> gaston = {
+    <span class="hljs-attr">nom</span>:<span class="hljs-string">"Lagaffe"</span>,
+    <span class="hljs-attr">prenom</span>:<span class="hljs-string">"Gaston"</span>,
+    <span class="hljs-attr">profession</span>:<span class="hljs-string">"gaffeur"</span>
+};
+<span class="hljs-keyword">for</span>(attribut <span class="hljs-keyword">in</span> gaston) 
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Gaston possède l'attribut <span class="hljs-subst">${attribut}</span>`</span>);
+<span class="hljs-comment">// Gaston possède l'attribut nom</span>
+<span class="hljs-comment">// Gaston possède l'attribut prenom</span>
+<span class="hljs-comment">// Gaston possède l'attribut profession</span>
+</code></pre></div>    </div>
+
+  </div>
+
+</section>
+<section>
+
+  <h2 id="tableaux-associatifs">Tableaux associatifs&nbsp;?</h2>
+
+  <p>Les objets JavaScript peuvent être aussi vus comme des «tableaux
+associatifs» en lisant autrement leurs attributs&nbsp;:</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code class="hljs language-ruby">let p = {<span class="hljs-symbol">nom:</span><span class="hljs-string">"Dupont"</span>,<span class="hljs-symbol">prenom:</span><span class="hljs-string">"Pierre"</span>,<span class="hljs-symbol">age:</span><span class="hljs-number">35</span>};
+p.nom; <span class="hljs-regexp">//</span> → <span class="hljs-string">"Dupont"</span>
+p.prenom; <span class="hljs-regexp">//</span> → <span class="hljs-string">"Pierre"</span>
+p.age; <span class="hljs-regexp">//</span> → <span class="hljs-number">35</span>
+p[<span class="hljs-string">"nom"</span>]; <span class="hljs-regexp">//</span> → <span class="hljs-string">"Dupont"</span>
+p[<span class="hljs-string">"pre"</span> + <span class="hljs-string">"nom"</span>]; <span class="hljs-regexp">//</span> → <span class="hljs-string">"Pierre"</span>
+p[<span class="hljs-string">"age"</span>]; <span class="hljs-regexp">//</span> → <span class="hljs-number">35</span>
+</code></pre></div>  </div>
+
+  <p><br></p>
+
+  <p><strong>Avantage</strong> de la syntaxe <code class="language-plaintext highlighter-rouge">obj[expr]</code> : <code class="language-plaintext highlighter-rouge">expr</code> est évalué</p>
+
+</section>
+
+<!--
+
+Selon la syntaxe de création d'objet, les méthodes appartiennent soit à l'objet, soit au prototype :
+* litérale : à l'objet
+* constructeur seul : constructeur au prototype, reste dans l'objet
+* classe : constructeur + méthode au prototype, reste dans l'objet
+
+On peut le vérifier en créant 2 instances et en testant l'égalité ===
+entre 2 méthodes.
+On peut le voir avec l'autocomplétion dans Node qui sépare selon l'appartenance
+On peut le voir avec l'affichage d'un objet dans la console, il faut dérouler
+pour voir les méthodes du prototype
+
+// Dans ce cas, les méthodes sont stockées dans l'objet p 
+let p = {nom: "Haddock", prenom: "Archibald", parler: function () {}};
+
+// Dans ce cas, les méthodes sont stockées dans l'objet commun __proto__
+class Personne {
+    constructor(nom, prenom, profession) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.profession = function() {};
+    }
+
+    myField = 0
+
+    parler() {
+        console.log("mille sabords !");
+    }
+}
+let cap = new Personne()
+cap.__proto_ →tab list les méthodes au fur et à mesure de la chaine prototypale
+cap.__proto__. constructor/parler
+cap.__proto__.__proto__. hasOwnProperty/toString/valueOf
+ -->
+
+
+  <section id="exit-slide" style="display:none">
+    <h3 class="centered">Appuyer sur ECHAP pour sortir de la
+    présentation.</h3>
+  </section>
+</div>
+
+<div id="controls"></div>
+<div id="progress-bar" style="width: 0%;"></div>
+
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                        <img alt="Creative Commons Licence" style="border-width:0" src="./Cours 1 Introduction à JavaScript_files/80x15.png"></a>
+                    <a href="https://github.com/romainlebreton">Romain Lebreton</a>, Malo Gasquet, Cyrille Nadal, Victor
+                    Poupet et
+                    Matthieu Rosenfeld
+                    2023, licensed
+                    under <a rel="license" class="print-link" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA
+                        4.0</a>.
+                </p>
+
+                <p class="dont-print">Source code available
+                    on <a href="https://github.com/romainlebreton/R.4.01-DeveloppementWeb-JavaScript">GitHub</a>,
+                    static Website generated
+                    with <a href="http://jekyllrb.com/">Jekyll</a> and kindly
+                    hosted by <a href="https://pages.github.com/">GitHub</a>.
+                    <a href="https://github.com/defeo/class-boilerplate">Structure of the website</a> by <a href="http://defeo.lu/">Luca De Feo</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    
+    <script src="./Cours 1 Introduction à JavaScript_files/dz-slides.js"></script>
+    
+
+    
+
+    
+    <script>hljs.highlightAll();</script>
+    
+
+    
+
+
+
+</body></html>
