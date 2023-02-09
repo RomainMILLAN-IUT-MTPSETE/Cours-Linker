@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)http://romainlebreton.github.io/R.4.01-DeveloppementWeb-JavaScript/classes/SAE4A.html -->
+<html data-slide="1" style="--arc-palette-title:#D5E6EBF4; --arc-background-gradient-color1:#EB5B1EFF; --arc-palette-backgroundExtra:#000F14F4; --arc-palette-foregroundTertiary:#1EAEEBFF; --arc-palette-cutoutColor:#0B5F83FF; --arc-palette-focus:#3A7E9BCE; --arc-background-gradient-color0:#1EAEEBFF; --arc-palette-hover:#478AA47A; --arc-palette-background:#001D29F6; --arc-palette-foregroundPrimary:#DEF3FCFF; --arc-palette-foregroundSecondary:#1EAEEBFF; --arc-palette-subtitle:#727D81F9; --arc-palette-minContrastColor:#0B5F83FF; --arc-palette-maxContrastColor:#DEF3FCFF;"><head lang="fr"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>S4.A.01  Développement d’une application complexe</title>
+
+    
+    <!-- <link rel="stylesheet" href="/R.4.01-DeveloppementWeb-JavaScript/css/highlight-default.css"> -->
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
+    <link rel="stylesheet" href="./S4.A.01 Développement d’une application complexe_files/github.min.css">
+    <script src="./S4.A.01 Développement d’une application complexe_files/highlight.min.js"></script>
+    
+
+    <link rel="stylesheet" href="./S4.A.01 Développement d’une application complexe_files/main.css">
+    
+
+    
+    <link class="slideshow-css" rel="stylesheet" href="./S4.A.01 Développement d’une application complexe_files/dz-slides.css">
+    <link class="slideshow-css" rel="stylesheet" href="./S4.A.01 Développement d’une application complexe_files/dz-slides-customization.css">
+    <script>
+        // Hack for Firefox
+        var st = document.getElementsByClassName("slideshow-css");
+        Array.prototype.forEach.call(st, function (x) { x.disabled = true; });
+    </script>
+    
+
+    <link rel="icon" type="image/png" href="http://romainlebreton.github.io/R.4.01-DeveloppementWeb-JavaScript/assets/favicon.ico">
+
+    <link href="https://github.com/romainlebreton/R.4.01-DeveloppementWeb-JavaScript/commits/gh-pages.atom" rel="alternate" title="Recent Commits to R.4.01-DeveloppementWeb-JavaScript" type="application/atom+xml">
+
+    <script src="./S4.A.01 Développement d’une application complexe_files/polyfills.js"></script>
+</head>
+
+<body class="loaded" style="transform: scale(2.21833);">
+    <ul class="menu dont-print" id="top-menu">
+        <li><a href="http://romainlebreton.github.io/R.4.01-DeveloppementWeb-JavaScript/">Home</a></li>
+        <li><a href="https://github.com/romainlebreton/R.4.01-DeveloppementWeb-JavaScript/blob/gh-pages/classes/SAE4A.md">Source</a></li>
+        <li><a href="https://github.com/romainlebreton/R.4.01-DeveloppementWeb-JavaScript/edit/gh-pages/classes/SAE4A.md">Quick edit</a></li>
+        <li><a href="javascript:window.print()">Print</a></li>
+        
+        <li><a href="javascript:Dz.play()">Start slideshow</a></li>
+        
+    </ul>
+
+    <div class="main">
+        <div class="container">
+            <div id="slides">
+
+  <section class="title-slide" aria-selected="true">
+    <div>
+      <h1>S4.A.01 <br> Développement d’une application complexe <span class="subtitle">Présentation</span></h1>
+
+      <div id="slides-license" style="display: none">
+	<p></p>
+          <p><a href="https://github.com/romainlebreton">Romain Lebreton</a>, Malo Gasquet, Cyrille Nadal, Victor Poupet et Matthieu Rosenfeld
+	  2023,<br> Distribué avec une licence
+	  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA
+	    4.0</a><sup>*</sup>
+          <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+	    <img alt="Creative Commons Licence" style="border-width:0" src="./S4.A.01 Développement d’une application complexe_files/88x31.png">
+	  </a></p>
+	
+	<p><small><sup>*</sup>Vous avez droit de reproduire, distribuer
+	    et modifier à condition d'inclure un lien vers cette source,
+	    et de partager sous les mêmes conditions.</small></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+  <h2 id="sujet">Sujet</h2>
+
+  <p>Une application Web codée qui calcule l’itinéraire le plus court entre 2 communes</p>
+
+  <p><img alt="Exemple de solution" src="./S4.A.01 Développement d’une application complexe_files/CaptureSolution.png" height="400" class="blockcenter"></p>
+
+</section>
+
+<section>
+  <h2 id="votre-mission">Votre mission</h2>
+
+  <p>À partir d’un code existant, vous devrez évaluer puis optimiser :</p>
+  <ul>
+    <li>les performances (temps, mémoire, …)</li>
+    <li>la qualité logicielle (tests, organisation, commentaires, …)</li>
+    <li>l’ergonomie (JS, rajouter des fonctionnalités, …)</li>
+    <li>la sécurité (faille de sécurité ?)</li>
+    <li>bilan écologique (de l’appli Web, du gain pour un conducteur)</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="organisation">Organisation</h2>
+
+  <ul>
+    <li><a href="https://gitlabinfo.iutmontp.univ-montp2.fr/s4.a.01/plus-court-chemin-code-de-base">Dépôt Git</a> avec le code de base existant (en PHP)</li>
+    <li>Base de donnée existante (PostgreSQL)</li>
+    <li>Vos contacts principaux :
+      <ul>
+        <li>Q1 : Romain Lebreton</li>
+        <li>Q2 : Malo Gasquet</li>
+        <li>Q5 : Cyrille Nadal</li>
+      </ul>
+    </li>
+    <li>groupes de 4 : les délégués nous contactent pour nous donner
+      <ul>
+        <li>la liste des groupes</li>
+        <li>l’adresse du dépôt Git avec tous les droits,</li>
+        <li>un lien vers un journal de bord</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p><strong>Livrables :</strong></p>
+  <ul>
+    <li>Journal de bord (pour qu’on puisse vous suivre plus facilement)</li>
+    <li>Compte rendu sur les optimisations réalisées (conception, code, jeux d’essais…)</li>
+    <li>Rapport final (préparation au rapport de stage)</li>
+  </ul>
+
+</section>
+<section>
+  <h2 id="planning-provisoire">Planning provisoire</h2>
+
+  <ul>
+    <li>Semestre 4 : 9 semaines de cours, 1 semaine vacances</li>
+    <li>Sprint de 2 semaines<br>
+→ points intermédiaires les semaines du 20/02, 13/03, 27/03<br>
+→ soutenance la semaine du 10/04</li>
+    <li>Séance du 20 février :
+      <ul>
+        <li>qu’avez-vous évalué ? Pourquoi ?</li>
+        <li>qu’avez-vous choisi d’amélioré ? Pourquoi ? Comment ?</li>
+        <li>Aide technique pour faire marcher les outils à l’IUT ou sur votre machine :<br>
+xDebug, PostgreSQL (installation + liaison PHP), PHPUnit…</li>
+      </ul>
+    </li>
+    <li>À venir :
+      <ul>
+        <li>Séance impact environnemental</li>
+        <li>Séance test en PHP avec PHPUnit</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h1 id="code-existant">Code existant</h1>
+
+  <p><a href="https://gitlabinfo.iutmontp.univ-montp2.fr/s4.a.01/plus-court-chemin-code-de-base">Dépôt Git pour les élèves</a></p>
+
+  <p><a href="http://localhost/~lebreton/PHP2223/SAE4/CodeBaseEtudiants/web/controleurFrontal.php?action=plusCourtChemin&amp;controleur=noeudCommune">Démo</a></p>
+
+  <div class="incremental">
+    <p>~15 secondes pour parcourir 300 mètres…</p>
+  </div>
+
+  <!-- Aller de billière à Cirès -->
+
+</section>
+
+<section>
+  <h2 id="donnes">Données</h2>
+
+  <ul class="incremental">
+    <li>Réseau routier français <a href="https://geoservices.ign.fr/route500">Route500</a> fourni par l’IGN</li>
+    <li>35 000 communes, 1 300 000 tronçons de route qui s’intersectent en 900 000 nœuds routiers (carrefours)</li>
+    <li>L’IGN fournit une <a href="https://geoservices.ign.fr/documentation/donnees/vecteur/route500">documentation</a> et un <a href="https://geoservices.ign.fr/sites/default/files/2021-12/DC_ROUTE500_3-0.pdf">descriptif de contenu</a></li>
+    <li>J’ai converti pour vous les données du format <a href="https://en.wikipedia.org/wiki/Shapefile">Shapefile</a> vers du SQL.</li>
+    <li>Les données géométriques SQL sont au format latitude / longitude (<a href="https://epsg.io/4326">EPSG:4326</a>) utilisée par les GPS, OpenStreetMap, …
+<!-- * Les tronçons routiers n'indiquent pas leurs nœuds routiers aux extrémités   --></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="base-de-donnes-postgresql">Base de données PostgreSQL</h2>
+
+  <ul>
+    <li>Extension <a href="https://postgis.net/docs/reference.html">PostGIS</a> pour manipuler des données géométriques</li>
+    <li>Exemple de fonction PostGIS :
+      <ul>
+        <li><a href="https://postgis.net/docs/ST_DistanceSphere.html">ST_DistanceSphere</a> calcule une distance en mètres</li>
+      </ul>
+    </li>
+    <li>Vous avez le privilège <code class="language-plaintext highlighter-rouge">SELECT</code> sur les tables <code class="language-plaintext highlighter-rouge">noeud_commune</code>, <code class="language-plaintext highlighter-rouge">noeud_routier</code> et <code class="language-plaintext highlighter-rouge">troncon_route</code> du schéma <code class="language-plaintext highlighter-rouge">rletud</code> à l’IUT</li>
+    <li>Démo sous DBeaver (paramètres + visualisation spatiale)</li>
+  </ul>
+
+  <div role="note">
+    <p>Montrer les paramètres DBeaver et la visualisation</p>
+  </div>
+
+</section>
+
+<section>
+  <h1 id="mesurer--optimiser">Mesurer / optimiser</h1>
+</section>
+
+<section>
+  <h2 id="analyse-de-performances-du-php">Analyse de performances du PHP</h2>
+
+  <ul>
+    <li><a href="https://xdebug.org/">Xdebug</a> permet d’analyser les performances du PHP, de lancer un débogueur, …</li>
+    <li>Xdebug est installé à l’IUT :
+      <ul>
+        <li>Appelez votre page Web en remplaçant l’hôte <code class="language-plaintext highlighter-rouge">webinfo</code> par <code class="language-plaintext highlighter-rouge">162.38.222.150</code></li>
+        <li>rajoutez <code class="language-plaintext highlighter-rouge">XDEBUG_TRIGGER</code> dans la <em>query string</em></li>
+        <li>Inspectez les en-têtes de réponse pour connaître votre fichier d’analyse<br>
+<code class="language-plaintext highlighter-rouge">X-Xdebug-Profile-Filename: /home/xdebug/log/cachegrind.out.173610</code></li>
+        <li>Allez sur l’URL http://162.38.222.150/xdebug (identifiants: xdebug/iut2023)
+pour récupérer le fichier <code class="language-plaintext highlighter-rouge">cachegrind</code></li>
+        <li>ouvrez le fichier avec un analyseur, par ex. KCacheGrind</li>
+      </ul>
+    </li>
+    <li><a href="https://162.38.222.150/info.php?XDEBUG_TRIGGER">Démo</a> avec KCacheGrind</li>
+  </ul>
+
+  <div role="note">
+    <p>KcacheGrind :</p>
+    <ul>
+      <li>temps (10ns), mémoire</li>
+      <li>Cumul et en propre</li>
+      <li>Se balader dans le source</li>
+      <li>Arbre des appels</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 id="mesurer--valuer">Mesurer / évaluer</h2>
+
+  <p>À vous de trouver d’autres manières de mesurer / évaluer :</p>
+  <ul>
+    <li>les performances</li>
+    <li>la qualité logicielle</li>
+    <li>l’ergonomie</li>
+    <li>la sécurité</li>
+    <li>bilan écologique</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="volution-du-site-web">Évolution du site Web</h2>
+
+  <div style="font-size:large">
+
+    <p>Cette SAÉ intègrera le projet des cours Web</p>
+
+    <p><strong>Planning provisoire cours de Web :</strong></p>
+    <ul>
+      <li>Développement Web (JS) :
+        <ul>
+          <li>Semaines 2 &amp; 3 : 
+  Objets et interaction avec la page Web</li>
+          <li>Semaines 4 &amp; 5 : 
+  requêtes asynchrones AJAX</li>
+          <li>Semaine 6 : 
+  Suivi de projet</li>
+        </ul>
+      </li>
+      <li>Complément Web :
+        <ul>
+          <li>Semaines 4, 5, 6 : compléments PHP<br>
+  Bibliothèques PHP, API REST</li>
+          <li>Semaines 7 &amp; 8 : compléments JS<br>
+  Site Web en programmation réactive</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p><strong>À intégrer au fur et à mesure :</strong></p>
+    <ul>
+      <li>rajout de fonctionnalités au site Web (connexion ?, demande de trajet ?)</li>
+      <li>déplacement d’une partie de la logique du site Web côté client</li>
+      <li>utilisation de programmation réactive</li>
+      <li>requêtes asynchrones sur une API REST</li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- <section>
+</section>
+
+<section>
+</section> -->
+
+<!-- 
+! Lien git code de base !
+
+Import BD, install postGIS
+Install xdebug
+Parcours code PHP
+Démo solution
+ -->
+
+
+  <section id="exit-slide" style="display:none">
+    <h3 class="centered">Appuyer sur ECHAP pour sortir de la
+    présentation.</h3>
+  </section>
+</div>
+
+<div id="controls"></div>
+<div id="progress-bar" style="width: 0%;"></div>
+
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                        <img alt="Creative Commons Licence" style="border-width:0" src="./S4.A.01 Développement d’une application complexe_files/80x15.png"></a>
+                    <a href="https://github.com/romainlebreton">Romain Lebreton</a>, Malo Gasquet, Cyrille Nadal, Victor
+                    Poupet et
+                    Matthieu Rosenfeld
+                    2023, licensed
+                    under <a rel="license" class="print-link" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA
+                        4.0</a>.
+                </p>
+
+                <p class="dont-print">Source code available
+                    on <a href="https://github.com/romainlebreton/R.4.01-DeveloppementWeb-JavaScript">GitHub</a>,
+                    static Website generated
+                    with <a href="http://jekyllrb.com/">Jekyll</a> and kindly
+                    hosted by <a href="https://pages.github.com/">GitHub</a>.
+                    <a href="https://github.com/defeo/class-boilerplate">Structure of the website</a> by <a href="http://defeo.lu/">Luca De Feo</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    
+    <script src="./S4.A.01 Développement d’une application complexe_files/dz-slides.js"></script>
+    
+
+    
+
+    
+    <script>hljs.highlightAll();</script>
+    
+
+    
+
+
+
+</body></html>
