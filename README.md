@@ -1,10 +1,12 @@
 # Cours-Linker
-> Ici vous retrouverai l'intégralité des cours de Romain, vous pouvez les télécharger si vous le voulez.
+Repository qui représente tous les cours de BUT Informatique de Romain MILLAN.<br/>
 
-## Comment les télécharger
+## Téléchargement
+
+### Clone
+Vous pouvez utiliser git et la commande `git clone https://github.com/RomainMILLAN/Cours-Linker` pour cloner directement tout le projet.
+
+<br/>
+
 ### Releases
-En effet vous pouvez avoir acces aux contenue pas les releases qui sortent lors de fin de semestre.<br/>
-Pour avoir accès au releases [cliquez-ici](https://bitbucket.org/wabezeter/cours-linker/downloads/)
-
-<br/><br/><br/><br/><br/>
-> Cordialement, MILLAN Romain
+Vous pouvez aussi télécharger les releases depuis le lien [ici](https://github.com/RomainMILLAN/Cours-Linker/releases)
