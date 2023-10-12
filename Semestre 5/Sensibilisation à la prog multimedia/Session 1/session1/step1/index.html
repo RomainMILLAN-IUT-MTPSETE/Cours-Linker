@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple WebGL</title>
+    <style>
+        #webglCanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 20px auto;
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <canvas id="webglCanvas"></canvas>
+
+
+    <script>
+
+        window.onload = function() {
+            let canvas = document.getElementById("webglCanvas");
+            let gl;
+
+            try {
+                gl = canvas.getContext('experimental-webgl');
+            }catch(e) {
+                console.log("Error");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
