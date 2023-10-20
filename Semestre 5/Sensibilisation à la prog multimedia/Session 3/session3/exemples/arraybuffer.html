@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL ARRAY_BUFFER_BINDING Example</title>
+</head>
+
+<body>
+
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+    <script type="text/javascript">
+        // Obtenez le contexte de rendu WebGL
+        var canvas = document.getElementById('canvas');
+        var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+
+        // Créez un nouveau tampon
+        var buffer = gl.createBuffer();
+        // Liez le tampon à la cible ARRAY_BUFFER
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        var currentBufferBinding = gl.getParameter(gl.ARRAY_BUFFER_BINDING);
+        // Vous pouvez vérifier l'égalité des références pour confirmer que le tampon est bien lié
+        console.log(currentBufferBinding === buffer);  // Affichera true
+        console.log(gl.ARRAY_BUFFER);
+        console.log(gl.ARRAY_BUFFER_BINDING);
+        console.log(currentBufferBinding);
+        
+        //gl.ARRAY_BUFFER_BINDING
+
+
+    </script>
+
+</body>
+
+</html>

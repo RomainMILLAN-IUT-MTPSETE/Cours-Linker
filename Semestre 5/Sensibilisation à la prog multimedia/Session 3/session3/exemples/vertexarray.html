@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL Example</title>
+</head>
+
+<body>
+
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+    <script type="text/javascript">
+        var gl = document.getElementById('canvas').getContext('webgl2');
+
+        // Créer et lier un Vertex Array Object (VAO)
+        var vao = gl.createVertexArray();
+        gl.bindVertexArray(vao);
+
+        // Données des vertices
+        var vertices = new Float32Array([
+            -0.5, -0.5,
+            0.5, -0.5,
+            0.0, 0.5
+        ]);
+
+
+       
+
+        // Créer et lier un ARRAY_BUFFER
+        var vertexBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+         // Données des couleurs par vertices
+            var colors = new Float32Array([
+                1.0, 0.0, 0.0,
+                0.0, 1.0, 0.0,
+                0.0, 0.0, 1.0
+            ]);
+
+                // Créer et lier un ARRAY_BUFFER
+          var colorBuffer = gl.createBuffer();
+          gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+          gl.bufferData(gl.ARRAY_BUFFER, colors, gl.STATIC_DRAW);
+
+
+
+
+        // Shaders
+        var vertCode = `
+        attribute vec2 coordinates;
+        attribute vec3 colors;
+        
+        varying vec3 v_colors;
+        
+        void main(void) {
+            gl_Position = vec4(coordinates, 0.0, 1.0);
+            v_colors = colors ;
+        }`;
+
+        var vertShader = gl.createShader(gl.VERTEX_SHADER);
+        gl.shaderSource(vertShader, vertCode);
+        gl.compileShader(vertShader);
+
+        var compiled = gl.getShaderParameter(vertShader, gl.COMPILE_STATUS);
+            console.log('Shader compiled successfully: ' + compiled);
+            var compilationLog = gl.getShaderInfoLog(vertShader);
+            console.log('Shader compiler log: ' + compilationLog);
+
+
+        var fragCode = `
+        precision highp float;
+        varying vec3 v_colors;
+        
+        void main(void) {
+            gl_FragColor = vec4(v_colors, 1.0);
+        }`;
+
+        var fragShader = gl.createShader(gl.FRAGMENT_SHADER);
+        gl.shaderSource(fragShader, fragCode);
+        gl.compileShader(fragShader);
+
+        var shaderProgram = gl.createProgram();
+        gl.attachShader(shaderProgram, vertShader);
+        gl.attachShader(shaderProgram, fragShader);
+        gl.linkProgram(shaderProgram);
+        if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+                const info = gl.getProgramInfoLog(shaderProgram);
+                throw new Error(`Could not compile WebGL program. \n\n${info}`);
+            }
+
+        gl.useProgram(shaderProgram);
+
+        // Associer l'attribut de coordonnées avec le buffer de données des vertices
+        var coordLoc = gl.getAttribLocation(shaderProgram, "coordinates");
+        
+        var colorLoc = gl.getAttribLocation(shaderProgram, "colors");
+        
+        gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+        gl.enableVertexAttribArray(coordLoc);
+        gl.vertexAttribPointer(coordLoc, 2, gl.FLOAT, false, 0, 0);
+        
+        gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+        gl.enableVertexAttribArray(colorLoc);
+        gl.vertexAttribPointer(colorLoc, 3, gl.FLOAT, true, 0, 0);
+        
+
+
+
+        // Effacer le canevas et dessiner le triangle
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+
+    </script>
+</body>
+
+</html>

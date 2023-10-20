@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texture Example</title>
+</head>
+
+<body>
+
+    <canvas id="canvasWebGL" width="400" height="400"></canvas>
+
+    <script type="text/javascript">
+        var canvasWebGL = document.getElementById('canvasWebGL');
+        var gl = canvasWebGL.getContext('webgl') || canvasWebGL.getContext('experimental-webgl');
+
+        // Étape 1 : Créez un canevas temporaire et dessinez la lettre "F" dessus
+        var tempCanvas = document.createElement('canvas');
+        tempCanvas.width = 250;
+        tempCanvas.height = 250;
+        var ctx2D = tempCanvas.getContext('2d');
+        ctx2D.font = '200px sans-serif';
+        ctx2D.fillText('F', 50, 200);
+        
+        etapeCreationTexture();
+        var shaderProgram = etapeCreationShader();
+
+
+        // Étape 3 : Dessinez la texture à l'écran
+        var vertices = new Float32Array([
+            -1.0, 1.0,
+            -1.0, -1.0,
+            1.0, -1.0,
+            1.0, 1.0
+        ]);
+
+        var vertex_buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+        var coord = gl.getAttribLocation(shaderProgram, "coordinates");
+        gl.vertexAttribPointer(coord, 2, gl.FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(coord);
+
+        gl.clearColor(0.0, 0.0, 0.0, 1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+
+        gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
+
+
+
+        function etapeCreationTexture()
+        {
+                    // Étape 2 : Créez une texture WebGL à partir du canevas temporaire
+            var texture = gl.createTexture();
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, tempCanvas);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+
+        }
+
+        function etapeCreationShader()
+        {
+                    // Shaders
+            var vertCode = `
+        attribute vec2 coordinates;
+        varying highp vec2 texCoords;
+        void main(void) {
+            gl_Position = vec4(coordinates,0.0, 1.0);
+            texCoords = coordinates;
+        }`;
+
+            var vertShader = gl.createShader(gl.VERTEX_SHADER);
+            gl.shaderSource(vertShader, vertCode);
+            gl.compileShader(vertShader);
+
+            var fragCode = `
+        varying highp vec2 texCoords;
+        uniform sampler2D sampler;
+        void main(void) {
+            gl_FragColor = texture2D(sampler, vec2((texCoords.s + 1.0)/2.0, (texCoords.t + 1.0)/2.0));
+            
+        }`;
+
+            var fragShader = gl.createShader(gl.FRAGMENT_SHADER);
+            gl.shaderSource(fragShader, fragCode);
+            gl.compileShader(fragShader);
+
+            var shaderProgram = gl.createProgram();
+            gl.attachShader(shaderProgram, vertShader);
+            gl.attachShader(shaderProgram, fragShader);
+            gl.linkProgram(shaderProgram);
+            gl.useProgram(shaderProgram);
+            return shaderProgram;
+        }
+    </script>
+
+</body>
+
+</html>
