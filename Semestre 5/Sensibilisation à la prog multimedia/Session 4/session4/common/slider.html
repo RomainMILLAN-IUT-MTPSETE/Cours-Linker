@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sliders with Labels</title>
+</head>
+
+<body>
+    <h1>Sliders with Labels</h1>
+
+    <div id="sliderContainer"></div>
+
+    <script>
+        // Fonction générique pour créer un slider avec un label
+        function createSliderWithLabel(parentElement, minValue, maxValue, initialValue, label, callback) {
+            // Crée un label
+            const labelElement = document.createElement('label');
+            labelElement.textContent = label + "["+ minValue +","+ maxValue +"]";
+            parentElement.appendChild(labelElement);
+
+            // Crée un slider
+            const slider = document.createElement('input');
+            slider.type = 'range';
+            slider.min = minValue;
+            slider.max = maxValue;
+            slider.value = initialValue;
+
+            const valueSpan = document.createElement('span');
+            valueSpan.textContent = initialValue;
+
+            // Mettre à jour la valeur affichée et appeler le callback lorsque le slider change
+            slider.addEventListener('input', function () {
+                valueSpan.textContent = slider.value;
+                callback(parseFloat(slider.value));
+            });
+
+            parentElement.appendChild(slider);
+            parentElement.appendChild(valueSpan);
+        }
+
+        // Crée deux sliders génériques avec des labels et les ajoute au conteneur
+        const sliderContainer = document.getElementById('sliderContainer');
+
+        createSliderWithLabel(sliderContainer, -100, 100, 50, 'x', function (value) {
+            // Callback pour le premier slider
+            console.log('Slider 1 value:', value);
+        });
+        sliderContainer.appendChild(document.createElement('br'));
+        createSliderWithLabel(sliderContainer, -100, 100, 0, 'y', function (value) {
+            // Callback pour le deuxième slider
+            console.log('Slider 2 value:', value);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL - Dessiner un point</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+
+    <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+    <script type="text/javascript" src="../etape1/lib/gl-matrix.js"></script>
+    <script src="../common/dist/geometrie.js"></script>
+    <script type="text/javascript" src="../common/lib/util.js"></script>
+    <script type="text/javascript" src="./src/main.js"></script>
+
+</head>
+
+<body>
+    <div id="sliderContainer" class="container"></div>
+
+    <div class="table-container">
+        <div class="table">
+            <!-- Ligne des titres de colonnes -->
+            <div class="cell header">Point</div>
+            <div class="cell header">x</div>
+            <div class="cell header">y</div>
+
+            <!-- Ligne de données -->
+            <div class="cell" id="P1">P1</div>
+            <div class="cell" id="cx0">0</div>
+            <div class="cell" id="cy0">1</div>
+
+            <div class="cell" id="P2">P2</div>
+            <div class="cell" id="cx1">0</div>
+            <div class="cell" id="cy1">1</div>
+
+            <div class="cell" id="P3">P3</div>
+            <div class="cell" id="cx2">0</div>
+            <div class="cell" id="cy2">1</div>
+        </div>
+    </div>
+
+    <canvas id="canvas" width="600" height="800"></canvas>
+    <script type="text/javascript">
+
+
+        let e0_base = new Vector([1, 0]);
+        let e1_base = new Vector([0, 1]);
+        let espace_vectoriel_base = new VectorSpace([e0_base, e1_base]);
+
+        let e0_nouveau = new Vector([1, 0]);
+        let e1_nouveau = new Vector([0, 1]);
+        let espace_vectoriel_nouveau = new VectorSpace([e0_nouveau, e1_nouveau]);
+
+
+        //creation des sliders pour contoler les valeurs de nos vecteurs de base
+        createSliders(espace_vectoriel_nouveau);
+
+        var canvas = document.getElementById('canvas');
+        var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        var program;
+        configurationGL(gl);
+
+        var coordonees_base_canonique = [-0.5, -0.5, 0, 0.5, 0.5, -0.5];
+
+
+        updateScene();
+
+
+    </script>
+
+</body>
+
+</html>

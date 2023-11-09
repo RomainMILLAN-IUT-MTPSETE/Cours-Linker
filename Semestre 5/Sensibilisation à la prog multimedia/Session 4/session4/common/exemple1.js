@@ -1,0 +1,15 @@
+"use strict";
+var geo = require("./geometrie");
+var mat = require("./lib/gl-matrix");
+var e0 = new geo.Point2D(1, 0).getVector();
+var e1 = new geo.Point2D(0, 1).getVector();
+var es1 = new geo.VectorSpace([e0, e1]);
+var b0 = new geo.Point2D(-1, 0).getVector();
+var b1 = new geo.Point2D(0, -1).getVector();
+var es2 = new geo.VectorSpace([b0, b1]);
+var P = es1.changeBase(es2);
+var P2 = mat.mat2.fromValues(P[0][0], P[0][1], P[1][0], P[1][1]);
+var p = mat.vec2.fromValues(1, 1);
+var r = mat.vec2.create();
+mat.vec2.transformMat2(r, p, P2);
+console.log("result" + mat.vec2.str(r));

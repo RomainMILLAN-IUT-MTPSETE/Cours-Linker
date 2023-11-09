@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exemple </title>
+
+    <!-- external library -->
+    <script type="text/javascript" src="./lib/gl-matrix-min.js"></script> 
+
+    <!-- core of the game engine -->
+    <script type="module" src="./dist/exemple1.js"></script>
+    <script type="text/javascript" src="./lib/util.js"></script>
+
+
+</head>
+
+<body>
+
+        
+    <div id="sliderContainer"></div>
+
+
+    <canvas id="GLCanvas" width="640" height="480">
+        <!-- GLCanvas is the area we will draw in: a 640x480 area. -->
+        Your browser does not support the HTML5 canvas.
+        <!-- this message will show only if WebGL clearing failed -->
+    </canvas>
+    <script>
+        // Crée deux sliders génériques avec des labels et les ajoute au conteneur
+            const sliderContainer = document.getElementById('sliderContainer');
+            createSliderWithLabel(sliderContainer, -100, 100, 50, 'e0.x', function (value) {
+                // Callback pour le premier slider
+                console.log('Slider 1 value:', value);
+            });
+            sliderContainer.appendChild(document.createElement('br'));
+            createSliderWithLabel(sliderContainer, -100, 100, 0, 'e0.y', function (value) {
+                // Callback pour le deuxième slider
+                console.log('Slider 2 value:', value);
+            });
+            sliderContainer.appendChild(document.createElement('br'));
+
+            createSliderWithLabel(sliderContainer, -100, 100, 50, 'e1.x', function (value) {
+                    // Callback pour le premier slider
+                    console.log('Slider 1 value:', value);
+                });
+                sliderContainer.appendChild(document.createElement('br'));
+                createSliderWithLabel(sliderContainer, -100, 100, 0, 'e1.y', function (value) {
+                    // Callback pour le deuxième slider
+                    console.log('Slider 2 value:', value);
+                });
+
+    </script>
+
+</body>
+
+</html>
+
+
+

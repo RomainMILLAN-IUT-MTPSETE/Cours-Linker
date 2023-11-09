@@ -1,0 +1,43 @@
+/* Style for the container div */
+.container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: lightgrey;
+    padding: 10px;
+    /* Adjust padding as needed */
+}
+
+/* Style for the content inside the container */
+.content {
+    /* Add your content styles here */
+}
+
+/* Style pour la structure de la grille */
+.table {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border: 1px solid black;
+    position: fixed;
+    bottom: 0;
+}
+
+/* Style pour les cellules */
+.cell {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Style pour les titres de colonnes */
+.header {
+    font-weight: bold;
+}
+
+/* Style pour le conteneur de la table */
+.table-container {
+    background-color: lightgray;
+    padding: 10px;
+    /* Espacement pour le fond gris clair */
+    text-align: center;
+}
