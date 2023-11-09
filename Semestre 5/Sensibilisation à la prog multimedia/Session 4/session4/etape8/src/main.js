@@ -157,7 +157,7 @@ function updateScene() {
     let scaleMatrix = m3.scaling(scale[0], scale[1]);
     
     // TODO: calculer la matrice de projection avec m3.projection
-    let projectionMatrix = m3.identity();
+    let projectionMatrix = m3.projection(gl.canvas.width, gl.canvas.height);
     //----
     
     // Multiply the matrices.

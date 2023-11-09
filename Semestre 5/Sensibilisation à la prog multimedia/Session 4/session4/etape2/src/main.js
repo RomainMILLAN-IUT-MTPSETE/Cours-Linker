@@ -112,7 +112,25 @@ function drawScene(espaceVect, coordinates) {
 
 // TODO: changement de coordonnees
 function transformation_coordonnee(espace_vectoriel_origine, espace_vectoriel_nouveau, coordonees_origine) {
-   return coordonees_origine;
+    let matriceDePassage = espace_vectoriel_nouveau.changeBase(espace_vectoriel_origine);
+
+    let res = [];
+    for(let i=0; i<coordonees_origine.length; i=i+2){
+        let current = produitMatrice(matriceDePassage, [coordonees_origine[i], coordonees_origine[i+1]]);
+        console.log(current);;
+        
+        res.push(current[0]);
+        res.push(current[1]);
+    }
+
+    return res;
+}
+
+function produitMatrice(matriceDePassage, points) { 
+    return [
+        matriceDePassage[0][0] * points[0] + matriceDePassage[0][1] * points[1],
+        matriceDePassage[1][0] * points[0] + matriceDePassage[1][1] * points[1]
+    ];
 }
 //----
 
@@ -127,7 +145,7 @@ function updateCell(cellId, newValue) {
 //TODO
 function updateScene() {
     var coordinates = transformation_coordonnee(espace_vectoriel_base, espace_vectoriel_nouveau, coordonees_base_canonique);
-    drawScene(espace_vectoriel_nouveau, coordinates);
+    drawScene(espace_vectoriel_base, coordinates);
     for (let i = 0; i < coordinates.length; i = i + 2) {
         updateCell("cx" + (i / 2), coordinates[i]);
         updateCell("cy" + (i / 2), coordinates[i + 1]);

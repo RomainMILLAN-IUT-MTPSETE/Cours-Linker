@@ -77,6 +77,7 @@ var color;
 var positionLocation;
 var resolutionLocation;
 var positionBuffer;
+var matrixLocation;
 
 function setupUI() {
     let sliderContainer = document.getElementById("sliderContainer");
@@ -152,10 +153,13 @@ function updateScene() {
     // TODO: calculer la matrice des transformations.
 
     let matrix = m3.identity();
+    matrix = m3.multiply(matrix, translationMatrix)
+    matrix = m3.multiply(matrix, rotationMatrix)
+    matrix = m3.multiply(matrix, scaleMatrix)
     
     //--
     // TODO: transferer la matrice au shader uniform.
-    
+    gl.uniformMatrix3fv(matrixLocation, false, matrix);
     //----
 
     // Draw the rectangle.
@@ -222,7 +226,7 @@ function setupGL() {
     resolutionLocation = gl.getUniformLocation(program, "u_resolution");
     colorLocation = gl.getUniformLocation(program, "u_color");
     //TODO récupérer localisation de l uniform u_matrix
-
+    matrixLocation = gl.getUniformLocation(program, "u_matrix");
     //--
     
     color = [Math.random(), Math.random(), Math.random(), 1];

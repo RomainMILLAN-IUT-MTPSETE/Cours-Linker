@@ -106,8 +106,10 @@ function setupGL() {
                     //TODO
                     // cacluler la nouvelle position par rapport 
                     // a la rotation 
-                    
-                    vec2 rotatedPos = vec2 (a_position.x,a_position.y);
+                    vec2 rotatedPos = vec2 (
+                        a_position.x * u_rotation.x - a_position.y * u_rotation.y,
+                        a_position.x * u_rotation.y + a_position.y * u_rotation.x
+                    );
                     
                     //-------
                     

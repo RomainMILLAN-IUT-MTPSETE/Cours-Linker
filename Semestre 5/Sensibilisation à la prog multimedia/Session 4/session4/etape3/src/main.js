@@ -46,7 +46,7 @@ function updateScene() {
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
     
     //TODO: prendre en compte la translation.
-    fillRectangleCoordinates(gl, 0, 0, 300, 50);
+    fillRectangleCoordinates(gl, translation[0], translation[1], 300, 50);
     
     //----
 

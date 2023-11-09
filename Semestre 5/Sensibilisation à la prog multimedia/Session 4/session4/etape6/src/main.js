@@ -120,7 +120,7 @@ function setupGL() {
                 void main() {
                     //TODO: modifiez ici pour prendre en compte scale
                     
-                    vec2 scaledPos = vec2 ( a_position.x,a_position.y );
+                    vec2 scaledPos = vec2 ( u_scale.x * a_position.x,u_scale.y * a_position.y );
 
                     //
                     vec2 rotatedPos = vec2 (scaledPos.x * u_rotation.y + scaledPos.y * u_rotation.x, scaledPos.y * u_rotation.y - scaledPos.x * u_rotation.x);

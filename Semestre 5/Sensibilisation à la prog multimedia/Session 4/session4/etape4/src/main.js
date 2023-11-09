@@ -80,7 +80,6 @@ function setupGL() {
     var canvas = document.getElementById('canvas');
     gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
 
-
     // Shader sources
     var vertexShaderSource = `
                 attribute vec2 a_position;
@@ -88,7 +87,7 @@ function setupGL() {
                 uniform vec2 u_translation ;
                 void main() {
                     //TODO : calculer avec la translation
-                    vec2 position = a_position ;
+                    vec2 position = a_position + u_translation ;
                     //
                     vec2 zeroToOne = position / u_resolution;
                     vec2 zeroToTwo = zeroToOne * 2.0;
