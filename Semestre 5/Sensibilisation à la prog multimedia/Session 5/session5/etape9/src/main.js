@@ -334,7 +334,7 @@ var far = 1000;
 var fov = 30;
 
 //NEW
-cameraAngle = 0;
+cameraAngle = 10;
 
 
 var positionLocation;
