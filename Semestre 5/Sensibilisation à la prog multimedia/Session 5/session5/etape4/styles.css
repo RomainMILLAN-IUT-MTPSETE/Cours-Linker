@@ -1,0 +1,14 @@
+/* Style for the container div */
+.container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: lightgrey;
+    padding: 10px;
+    /* Adjust padding as needed */
+}
+
+/* Style for the content inside the container */
+.content {
+    /* Add your content styles here */
+}
