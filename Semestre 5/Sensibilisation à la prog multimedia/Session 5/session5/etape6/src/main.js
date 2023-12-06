@@ -378,9 +378,9 @@ function updateScene() {
     
     let matrix = m4.identity();
 
-//TODO : utiliser  createPerspectiveMatrixFromZ
-
-//---
+    //TODO : utiliser  createPerspectiveMatrixFromZ
+    matrix = m4.createPerspectiveMatrixFromZ(gamma);
+    //---
     matrix = m4.multiply( matrix, m4.orthographic(left, right, bottom, _top, near, far));
     matrix = m4.translate(matrix, translation[0], translation[1], translation[2]);
     matrix = m4.xRotate(matrix, rotation[0] * Math.PI / 180);
@@ -428,8 +428,8 @@ function setupGL() {
                 // Transformation & Project
                     vec4 position = u_matrix * a_position;
                     //TODO
-                    // float zfacteur = 1.0 + (u_gamma*position.z);
-                    // position = vec4(position.xy/zfacteur,position.zw);
+                    float zfacteur = 1.0 + (u_gamma*position.z);
+                    position = vec4(position.xy/zfacteur,position.zw);
                     //
                     gl_Position = position;
 

@@ -484,6 +484,7 @@ function updateScene() {
     
     //TODO: Réaliser une rotation a la caméra d'angle cameraAngle 
     var cameraMatrix = m4.identity();
+    cameraMatrix = m4.yRotate(cameraMatrix, cameraAngle * Math.PI / 180);
     
     //--------- 
 

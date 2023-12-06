@@ -393,7 +393,7 @@ function setupGL() {
                 // Transformation & Project
                     vec4 position = u_matrix * a_position;
                     //TODO
-                    
+                    position = vec4(position.xy/1.0+position.z, position.zw);
                     //--
                     gl_Position = position;
 

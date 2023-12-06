@@ -376,6 +376,7 @@ function updateScene() {
 
     var aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
     //TODO utilser  m4.perspective(fov,aspect,near,far)
+    matrix = m4.multiply(matrix, m4.perspective(fov, aspect, near, far));
 
     //---
     matrix = m4.translate(matrix, translation[0], translation[1], translation[2]);

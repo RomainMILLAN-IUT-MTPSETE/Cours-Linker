@@ -188,6 +188,7 @@ var colorBuffer;
 var matrixLocation;
 
 //TODO introduire gammaLocation
+var gammaLocation;
 
 function setupUI() {
     let sliderContainer = document.getElementById("sliderContainer");
@@ -376,7 +377,8 @@ function updateScene() {
 
     //TODO
     //transmettre gamma
- 
+    gl.uniform1f(gammaLocation, gamma);
+
     var primitiveType = gl.TRIANGLES;
     var offset = 0;
     var count = 12 * 2 * 3;
@@ -401,6 +403,7 @@ function setupGL() {
                 attribute vec4 a_position;
                 attribute vec4 a_color;
                 //TODO introduire un uniform u_gamma
+                uniform float u_gamma;
                 
                 varying vec4 v_color;
 
@@ -408,7 +411,8 @@ function setupGL() {
                 void main() {
                 // Transformation & Project
                     vec4 position = u_matrix * a_position;
-                    
+                    position = vec4(position.xy/1.0+(position.z*u_gamma), position.zw);
+
                     gl_Position = position;
 
                     v_color = a_color;
@@ -451,7 +455,7 @@ function setupGL() {
     colorLocation = gl.getAttribLocation(program, "a_color");
     matrixLocation = gl.getUniformLocation(program, "u_matrix");
     //TODO: récupérer la location de gamma
-    
+    gammaLocation = gl.getUniformLocation(program, "u_gamma");
 
     positionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);

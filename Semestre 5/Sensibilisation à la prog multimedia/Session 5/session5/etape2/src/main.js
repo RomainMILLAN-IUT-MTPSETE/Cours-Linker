@@ -358,9 +358,9 @@ function updateScene() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     //TODO: activer le culling
-    gl.enable(gl.CULL_FACE);
+    //gl.enable(gl.CULL_FACE);
     //TODO: activer le culling
-    gl.enable(gl.DEPTH_TEST);
+    //gl.enable(gl.DEPTH_TEST);
 
     gl.useProgram(program);
 

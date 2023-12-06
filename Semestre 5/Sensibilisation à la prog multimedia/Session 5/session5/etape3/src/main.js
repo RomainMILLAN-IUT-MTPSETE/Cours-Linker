@@ -313,7 +313,7 @@ function updateScene() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     //TODO: activer le culling
-
+    gl.enable(gl.CULL_FACE);
     //TODO: activer le depth test
 
     gl.useProgram(program);
