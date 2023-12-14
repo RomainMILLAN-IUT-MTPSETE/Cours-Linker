@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "M1",
+    "description": "Au cœur de la ville de Frontignan se dresse majestueusement Le Pénitencier, un magasin aux allures mystérieuses et captivantes. Ses murs en pierre grise et ses grandes portes de chêne accueillent les curieux avec une aura envoûtante. À l'intérieur, l'atmosphère est teintée de secrets anciens et de mystères contemporains. Des artefacts rares et des curiosités énigmatiques ornent les étagères sombres, suscitant la curiosité des visiteurs. Parmi les trésors exposés, une statue ancestrale de Ninja trône en gardien silencieux, ajoutant une touche de légende à cet établissement intrigant.",
+    "nom": "Le Pénitencier",
+    "ville": "Frontignan"
+  },
+  {
+    "_id": "M2",
+    "description": "La Conciergerie, éblouissant joyau niché au cœur de Marsillargues, séduit par son élégance intemporelle. Ses vitrines aux nuances chatoyantes invitent à une expérience shopping unique. À l'intérieur, ce bazar sophistiqué offre une panoplie d'articles exquis, allant des objets d'artisanat local aux trouvailles exotiques. Les étagères regorgent de livres rares sur le SQL, d'œuvres d'art envoûtantes et de gadgets ingénieux. Au milieu de cette collection variée, trône un Tamagotchi parlant couramment le SQL, le langage des dieux de l'informatique, symbole de la modernité s'alliant harmonieusement à l'atmosphère envoûtante de cet établissement.",
+    "nom": "La Conciergerie",
+    "ville": "Marsillargues"
+  },
+  {
+    "_id": "M3",
+    "description": "Près du port de Frontignan se dresse majestueusement La Santé, un magasin singulier dédié au bien-être et à la découverte. Ses façades blanches, ornées de touches vertes apaisantes, invitent à un voyage intérieur. À l'intérieur, une collection soigneusement sélectionnée d'articles pour la santé et le bien-être attend les visiteurs : herbes aromatiques, thés exotiques, équipements de yoga, et même des ouvrages sur la médecine ancestrale. Parmi les rayons, un livre sur les secrets de la santé Ninja attire l'attention, tandis que des hologrammes diffusent subtilement des informations sur le langage SQL, fusionnant ainsi savoir ancien et technologie moderne.",
+    "nom": "La Santé",
+    "ville": "Frontignan"
+  }
+]
