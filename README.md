@@ -10,3 +10,5 @@ Vous pouvez utiliser git et la commande `git clone https://github.com/RomainMILL
 
 ### Releases
 Vous pouvez aussi télécharger les releases depuis le lien [ici](https://github.com/RomainMILLAN/Cours-Linker/releases)
+
+*Fait par Romain MILLAN*
