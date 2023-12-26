@@ -1,8 +1,19 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.game__container {
+    width: 640px;
+    margin: auto;
+}
+
 #gameHUD {
     position: absolute;
-    top: 400px;
-    left: 10px;
+    /* top: 400px;
+    left: 10px; */
     z-index: 100;
+    margin: auto;
     /* Assurez-vous que le HUD est au-dessus des autres éléments du jeu */
     color: rgb(83, 10, 10);
     font-family: 'Arial', sans-serif;
@@ -14,9 +25,10 @@
 
 #gameOver {
     position: relative;
-    top: 250px;
-    left: 250px;
-    transform: translate(-50%, -50%);
+    top: 50px;
+    margin: auto;
+    /* left: 250px; */
+    /* transform: translate(-50%, -50%); */
     font-size: 48px;
     color: red;
     background-color: black;

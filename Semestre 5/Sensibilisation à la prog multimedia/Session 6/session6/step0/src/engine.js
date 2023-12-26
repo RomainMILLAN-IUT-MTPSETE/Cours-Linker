@@ -148,23 +148,22 @@ function init(htmlCanvasID) {
     ecs = new ECS();
     initWebGL(htmlCanvasID);
     let canvas = document.getElementById(htmlCanvasID);
-    let root = document.createElement("div");
-    document.body.appendChild(root);
+    let gameContainer = document.getElementById("game__container");
     
-    let rootHUD = document.createElement("div");
-    document.body.appendChild(rootHUD);
+    let gameContainerHUD = document.getElementById("game__container_hud")
+    gameContainer.appendChild(gameContainerHUD);
     
     // Ajouter le système de rendu WebGL à ECS
     ecs.addSystem(entities => inputSystem.inputSystem(entities, ecs.components));
     ecs.addSystem(entities => physicsSystem.physicsSystem(entities, ecs.components));
     ecs.addSystem(entities => collisionSystem.collisionSystem(entities, ecs.components,ecs));
     //TODO
-    //ecs.addSystem(entities => cssRenderSystem.cssRenderSystem(entities, ecs.components, root));
+    //ecs.addSystem(entities => cssRenderSystem.cssRenderSystem(entities, ecs.components, gameContainer));
     ecs.addSystem(entities => renderSystem.webGLRenderSystem(entities, ecs.components, mGL));
     //---
     ecs.addSystem(entities => gameoverSystem.gameoverSystem(entities, ecs.components, ecs,25));
     ecs.addSystem(entities => gameoverSystem.ballUnderRaquetteSystem(entities, ecs.components, ecs));
-    ecs.addSystem(entities => hudSystem.hudSystem(entities, ecs.components,rootHUD));
+    ecs.addSystem(entities => hudSystem.hudSystem(entities, ecs.components,gameContainerHUD));
     
 
     document.addEventListener('keydown', function(event) {

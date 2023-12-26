@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Case brique</title>
 
-<head>
-    <title>Exemple </title>
-
-    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="game.css" />
     <!-- core of the game engine -->
     <script type="module" src="./src/myGame.js"></script>
+  </head>
 
-
-</head>
-
-<body>
-    <canvas id="GLCanvas" width="640" height="480">
+  <body>
+    <div class="game__container" id="game__container">
+      <canvas id="GLCanvas" width="640" height="480">
         <!-- GLCanvas is the area we will draw in: a 640x480 area. -->
         Your browser does not support the HTML5 canvas.
         <!-- this message will show only if WebGL clearing failed -->
-    </canvas>
-</body>
+      </canvas>
 
+      <div class="game__container_hud" id="game__container_hud"></div>
+    </div>
+  </body>
 </html>
