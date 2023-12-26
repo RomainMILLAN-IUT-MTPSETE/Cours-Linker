@@ -13,7 +13,11 @@ const hudSystem = (entities, components, root) => {
             } 
             else if(components.GameStateComponent[stateEntity].state == 'gameover')
             {
-            root.innerHTML = '<div id="gameHUD"> <div id="score"> Fin de partie (votre score : '+score+')</div> <div id="gameOver">Game Over</div></div>';
+            root.innerHTML = '<div id="gameHUD"> <div id="score"> Fin de partie (votre score : '+score+')</div> <div class="game_state" id="gameOver">Game Over</div></div>';
+                
+            } else if(components.GameStateComponent[stateEntity].state == 'victory')
+            {
+            root.innerHTML = '<div id="gameHUD"> <div id="score"> Fin de partie (votre score : '+score+')</div> <div class="game_state" id="victory">Victoire</div></div>';
                 
             }
         }

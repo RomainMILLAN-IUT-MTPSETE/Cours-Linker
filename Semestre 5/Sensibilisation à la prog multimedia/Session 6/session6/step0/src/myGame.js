@@ -43,6 +43,7 @@ window.onload = function ()
     engine.ecs.eventEmitter.on( 'hit', handleHit)
     engine.ecs.eventEmitter.on( 'life', handleLife)
     engine.ecs.eventEmitter.on( 'gameover', handleGameover)
+    engine.ecs.eventEmitter.on( 'victory', handleVictory)
     
     engine.update();
 }
@@ -52,8 +53,7 @@ function handleHit(event)
 {
     for (const state of Object.getOwnPropertySymbols(engine.ecs.components[cpn.GameStateComponent.name]))
     {
-    engine.ecs.components.GameStateComponent[state].hits += 1;
-
+        engine.ecs.components.GameStateComponent[state].hits += 1;
     }
 }
 
@@ -65,6 +65,11 @@ function handleLife(event)
             engine.ecs.eventEmitter.emit('gameover')
         }else {
             engine.ecs.components.GameStateComponent[state].life -= 1;
+
+            for (const ball of Object.getOwnPropertySymbols(engine.ecs.components[cpn.BallTag.name])) {
+                engine.ecs.components.PositionComponent[ball].y = 150;
+                engine.ecs.components.PositionComponent[ball].x = 150;
+            }
         }
     }
 }
@@ -75,6 +80,15 @@ function handleGameover(event)
     {
     engine.ecs.components.GameStateComponent[state].state = 'gameover';
     engine.ecs.isRunning = false;    
+    }
+}
+
+function handleVictory(event)
+{
+    for (const state of Object.getOwnPropertySymbols(engine.ecs.components[cpn.GameStateComponent.name]))
+    {
+        engine.ecs.components.GameStateComponent[state].state = 'victory';
+        engine.ecs.isRunning = false;    
     }
 }
 

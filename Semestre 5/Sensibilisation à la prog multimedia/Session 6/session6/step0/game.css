@@ -24,16 +24,24 @@ body {
 }
 
 #gameOver {
+    color: red;
+    background-color: black;
+}
+
+#victory {
+    color: white;
+    background-color: green;
+}
+
+.game_state {
     position: relative;
     top: 50px;
     margin: auto;
-    /* left: 250px; */
-    /* transform: translate(-50%, -50%); */
     font-size: 48px;
-    color: red;
-    background-color: black;
     padding: 20px;
     border: 3px solid white;
     border-radius: 10px;
+    text-align: center;
+
 }
 
