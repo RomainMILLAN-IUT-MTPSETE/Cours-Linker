@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Case brique</title>
+    <title>Romain Millan | Case brique</title>
 
     <link rel="stylesheet" href="game.css" />
     <!-- core of the game engine -->
     <script type="module" src="./src/myGame.js"></script>
+    <script src="./utils/reload.js"></script>
+    <link rel="shortcut icon" href="utils/favicon.png" type="image/x-icon" />
   </head>
 
   <body>
-    <div class="game__container" id="game__container">
-      <canvas id="GLCanvas" width="640" height="480">
-        <!-- GLCanvas is the area we will draw in: a 640x480 area. -->
-        Your browser does not support the HTML5 canvas.
-        <!-- this message will show only if WebGL clearing failed -->
-      </canvas>
+    <main>
+      <div class="game__title">
+        <h1>Casse Brique</h1>
+        <img
+          src="./utils/romainmillan-copyright.png"
+          alt="Made By Romain MILLAN"
+        />
+      </div>
 
-      <div class="game__container_hud" id="game__container_hud"></div>
-    </div>
+      <div class="game__container" id="game__container">
+        <canvas id="GLCanvas" width="350" height="360">
+          <!-- GLCanvas is the area we will draw in: a 640x480 area. -->
+          Your browser does not support the HTML5 canvas.
+          <!-- this message will show only if WebGL clearing failed -->
+        </canvas>
+
+        <div class="game__container_hud" id="game__container_hud">
+          <div id="gameHUD-data">
+            <div id="score">Votre score : '+ score +'</div>
+            <br />
+            <div id="score">Nombre de vie : ' + life + '</div>
+          </div>
+
+          <div id="gameHUD-action">
+            <a href="" onclick="reload()"
+              ><button class="replay-hover replay">Rejouer</button></a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        2023 © IUT Montpellier/Sète, Département Informatique - Romain MILLAN
+      </p>
+    </footer>
   </body>
 </html>

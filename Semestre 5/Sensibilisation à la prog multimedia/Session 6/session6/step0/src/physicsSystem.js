@@ -1,9 +1,5 @@
-
-
 let mPrevTime;
 let mLagTime;
-
-
 
 const physicsSystem = (entities, components) => {
     let currentTime = performance.now();
@@ -17,8 +13,8 @@ const physicsSystem = (entities, components) => {
             components.VelocityComponent[entity]
         ) {
             const position = components.PositionComponent[entity];
-            components.PositionComponent[entity].x += components.VelocityComponent[entity].dx * elapsedTime;
-            components.PositionComponent[entity].y += components.VelocityComponent[entity].dy * elapsedTime;
+            components.PositionComponent[entity].x += components.VelocityComponent[entity].dx * 15;
+            components.PositionComponent[entity].y += components.VelocityComponent[entity].dy * 15;
         }
     }
 };

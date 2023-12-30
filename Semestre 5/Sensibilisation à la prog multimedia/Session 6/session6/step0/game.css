@@ -1,47 +1,161 @@
-body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+@font-face {
+  font-family: "easvhs";
+  src: url("utils/easvhs.ttf");
 }
-.game__container {
-    width: 640px;
-    margin: auto;
+@font-face {
+  font-family: "FiraCode";
+  src: url("utils/FiraCode-VariableFont.ttf");
 }
 
-#gameHUD {
-    position: absolute;
-    /* top: 400px;
-    left: 10px; */
-    z-index: 100;
-    margin: auto;
-    /* Assurez-vous que le HUD est au-dessus des autres éléments du jeu */
-    color: rgb(83, 10, 10);
-    font-family: 'Arial', sans-serif;
+body {
+  width: 100%;
+  height: 99vh;
+  margin: 0;
+  padding: 0;
+}
+main {
+  width: 100%;
+  height: 90%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 700px) {
+  main {
+    flex-direction: column;
+  }
+}
+.game__container {
+  width: 640px;
+  margin: auto;
+}
+
+.easvhs-font {
+  font-family: "easvhs", "Arial", sans-serif;
+}
+
+.game__title {
+  width: 25%;
+}
+.game__title h1 {
+  font-family: "easvhs", "Arial", sans-serif;
+  margin: 0;
+  margin-left: 10px;
+  margin-top: 25px;
+  font-size: 50px;
+}
+.game__title img {
+  width: 200px;
+  margin-left: 10px;
+}
+
+.game__container_hud {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+#gameHUD-data {
+  position: relative;
+  z-index: 100;
+  margin: auto;
+  color: rgb(83, 10, 10);
+  font-family: "Arial", sans-serif;
+  margin-left: 0;
+  min-height: 150px;
+}
+
+#gameHUD-action {
+  position: relative;
+}
+
+#gameHUD-action a {
+  margin-left: 95px;
 }
 
 #score {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 #gameOver {
-    color: red;
-    background-color: black;
+  color: red;
+  background-color: black;
 }
 
 #victory {
-    color: white;
-    background-color: green;
+  color: white;
+  background-color: green;
 }
 
 .game_state {
-    position: relative;
-    top: 50px;
-    margin: auto;
-    font-size: 48px;
-    padding: 20px;
-    border: 3px solid white;
-    border-radius: 10px;
-    text-align: center;
-
+  position: relative;
+  top: 20px;
+  margin-left: 50px;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
 }
 
+/*
+REPLAY
+*/
+.replay-hover {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.replay-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.replay-hover:focus {
+  outline: none;
+}
+
+.replay-hover.replay {
+  background-image: linear-gradient(
+    to right,
+    #f5ce62,
+    #e43603,
+    #fa7199,
+    #e85a19
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+
+/*
+FOOTER
+*/
+footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 6%;
+
+  p {
+    font-size: 10px;
+    font-family: "FiraCode", Arial, serif;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+}
